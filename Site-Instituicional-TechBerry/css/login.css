@@ -1,0 +1,61 @@
+@media only screen and (min-width: 1800px) {
+.loginContainer {
+    position: fixed;
+    justify-content: center;
+    border-color: #ffc3c3;
+    width: 30%;
+    height: 60%;
+    border-style: solid;
+    margin-left: 35%;
+    margin-top: 8%;
+    background-color: white;
+    font-family: Arial;
+    color: #ff8a8a;
+}
+.emailEstilo, .senhaEstilo {
+    border: none;
+    border-bottom: 2px solid #ffc3c3;
+    margin-left: 2%;
+    font-size: 70%;
+    margin-top: 10%;
+    font-family: Arial;
+    width: 95%;
+    height: 10%;
+    outline: none;
+}
+.loginNomes {
+    position: fixed;
+    margin: 1%;
+    margin-top: 1%;
+    font-weight: 550;
+    font-size: 90%;
+}
+.inputErrado {
+    position: fixed;
+    margin-left: 9.5%;
+    margin-top: 0.5%;
+    color: rgb(255, 87, 87);
+    font-size: 70%;
+    display: none;
+}
+.botaoLogin {
+    position: fixed;
+    margin-left: -24.5%;
+    margin-top: 10%;
+    border-radius: 1em;
+    font-size: 100%;
+    background-color: transparent;
+    border-color: #ff8a8a;
+    color: #ff8a8a;
+    cursor: pointer;
+    width: 20%;
+}
+.senhaEsqueceu {
+    position: fixed;
+    text-align: center;
+    margin-left: -22.5%;
+    margin-top: 15%;
+    font-size: 80%;
+    cursor: pointer;
+}
+}
