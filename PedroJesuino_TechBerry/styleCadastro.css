@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:wght@300;400;600;700;800&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.header{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(img/estufa2.jpg);
+  background-position: top center;
+  background-size: cover;
+}
+
+/* navbar/menu */
+.nav{
+  display: flex;
+  margin: auto;
+  align-items: center;
+  width: 80%;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+
+.nav img{
+  width: 80px;
+}
+
+.nav .title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav .nav-links{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav .nav-links ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+}
+
+.nav .nav-links ul li{
+  margin-right: 25px;
+}
+
+.nav .nav-links ul li a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav .nav-links ul li a:hover{
+  color: rgb(222, 59, 77);
+}
+.nav .nav-links ul li:hover{
+  border-bottom: 2px solid #DE3B4D;
+}
+
+/* form */
+.container{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  align-items: center;
+  color: black;
+}
+
+.content{
+  display: flex;
+  background: #fff;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  width: 70vw;
+  height: 60vh;
+}
+
+.content-cadastro{
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form-cadastro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  min-width: 238px;
+  padding: 0;
+}
+
+.form-cadastro h1{
+  font-size: 35px;
+  color: #DE3B4D;
+  margin-bottom: 10px;
+}
+
+.form-cadastro input{
+  width: 50%;
+  height: 50px;
+  background: #f0f0f0;
+  margin: 10px 0;
+  border: 2px solid #DE3B4D;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+input::placeholder{
+  color: black;
+}
+
+.form-cadastro button{
+  margin-top: 30px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background: #de3b4d;
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #eb3147;
+}
+
+.form-login{
+  display: flex;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  background-image: linear-gradient(-45deg, #f56172, #de3b4d);
+}
+
+.painel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  width: 400px;
+  height: 100%;
+}
+
+.painel h3{
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.form-login .painel button{
+  margin-top: 30px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background: #de3b4d;
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.form-login .painel button:hover{
+  background: #f0f0f0;
+  color: black;
+  transition: 1s;
+}
+
+
+.form-login img{
+  width: 100%;
+  height: 200px;
+}
+
+
