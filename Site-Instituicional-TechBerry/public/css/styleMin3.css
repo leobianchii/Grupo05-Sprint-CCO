@@ -1,0 +1,146 @@
+@media only screen and (max-width: 1700px) {
+    body {
+        background-color: rgb(255, 238, 238);
+        font-size: 180%;
+        font-family: Arial;
+        margin: 0;
+        position: absolute;
+    }
+    .headerB {
+        background-image: linear-gradient(45deg, #ffc3c3, #ff5f5f);
+        width: 100%;
+        height: 15%;
+        transform: skewY(-2deg);
+        position: relative;
+        margin-top: -7%;
+    }
+    .headerA {
+        background-image: linear-gradient(45deg, #ff5f5f, #ff5f5f);
+        width: 100%;
+        height: 80px;
+        transform: skewY(2deg);
+        margin-top: -0%;
+        position: relative;
+    }
+    .logo {
+        width: 6%;
+        position: relative;
+        left: 3%;
+        bottom: 0%;
+        cursor: pointer;
+    }
+    .beader {
+        background-color: #ff5f5f;
+        width: 100%;
+        margin-top: 479px;
+        height: 70px;
+        box-shadow: 3px 3px 10px;
+        position: relative;
+        justify-content: center;
+    }
+    .infoBeader {
+        align-items: center;
+        text-align: center;
+        font-size: 70%;
+        font-weight: 600;
+        color: #ffffff;
+        position: sticky;
+        margin-top: 10%;
+    }
+    .lista {
+        list-style-type: none;
+        display: flex;
+        text-align: center;
+        margin-left: 50%;
+        margin-top: -2%;
+        transform: skewY( 2deg);
+        font-weight: 600;
+        justify-content: space-evenly;
+        color: #ffe4e4;
+        font-size: 100%;
+    }
+    .listaBeader {
+        list-style-type: none;
+        display: flex;
+        text-align: center;
+        margin-left: -30px;
+        justify-content: space-around;
+        font-size: 90%;
+        margin-top: 100px;
+    }
+    li {
+        cursor: pointer;
+    }
+    .nomeEmpresa {
+        font-family: Patua -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 800;
+        margin-top: 10%;
+        color: #ff4040;
+        font-size: 120%;
+        width: 707px;
+        height: 290px;
+        margin-left: 6.5%;
+        text-align: center;
+        justify-content: center;
+    }
+    .nomeEmpresaTexto {
+        color: #ff4040;
+        font-style: italic;
+    }
+    .info {
+        text-align: center;
+        font-size: 90%;
+        color: rgb(255, 81, 81);
+    }
+    .botaoS {
+        font-family: Patua -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 600;
+        margin-top: 0;
+        margin-left: 0;
+        font-size: 60%;
+        border-radius: 1em;
+        background-color: transparent;
+        border-color: #ff5f5f;
+        color: rgb(255, 81, 81);
+        width: 150px;
+        height: 35px;
+        cursor: pointer;
+    }
+    .imagem {
+        width: 30%;
+        margin-top: -47%;
+        margin-left: 62%;
+    }
+    @font-face {
+        font-family: Patua One ;
+        src: url(fonte\PatuaOne-Regular.ttf);
+    }
+    #text-element {
+        font-family: 'Patua One', Arial, sans-serif;
+    }
+    .calculadoraContainer {
+        background-image: linear-gradient(45deg, #ffc3c3, #ff5f5f);
+        width: 100%;
+        height: 400px;
+        margin-top: 5%;
+    }
+    .registreJa {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 1000;
+        color: #ff4040;
+        font-size: 70px;
+        text-align: center;
+        align-items: center;
+        margin-top: 5%;
+    }
+    .botaoRegistra {
+        font-size: 60%;
+        border-radius: 1em;
+        background-color: #ff5959;
+        border-color: #ff5f5f;
+        color: white;
+        width: 300px;
+        height: 55px;
+        cursor: pointer;
+    }   
+}

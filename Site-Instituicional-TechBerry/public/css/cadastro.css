@@ -1,0 +1,88 @@
+.cadastroContainer {
+        position: relative;
+        justify-content: center;
+        border-color: #ffc3c3;
+        width: 45%;
+        height: 370px;
+        border-style: solid;
+        margin-left: 28%;
+        margin-top: 3%;
+        background-color: white;
+        font-family: Arial;
+        color: #ff8a8a;
+        font-weight: 600;
+}
+.cadastroInput {
+        border: none;
+        border-bottom: 1px solid red;
+        width: 45%;
+        height: 8%;
+        font-size: 100%;
+        margin-left: 2%;
+        margin-top: 8%;
+        outline: none;
+}
+.nomeInput, .emailInput {
+        position: fixed;
+        margin-left: 1%;
+        margin-top: 1%;
+        font-size: 75%;
+}
+.senhaInput {
+        position: fixed;
+        margin-left: -42.2%;
+        margin-top: 7%;
+        font-size: 75%;
+}
+.cnpjInput {
+        position: fixed;
+        margin-left: 1%;
+        margin-top: 0.7%;
+        font-size: 75%;
+}
+.empresaInput {
+        position: fixed;
+        margin-left: -42.2%;
+        margin-top: 7%;
+        font-size: 75%;
+}
+.selectCustom {
+        margin-left: 2.5%;
+        width: 120%;
+        min-width: none;
+        max-width: 45%;
+        border: 1px solid red;
+        border-radius: 0.25em;
+        padding: 0.25em 0.5em;
+        font-size: 1.25rem;
+        line-height: 1.1;
+        background-color: #fff;
+        background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+        color: #ff8a8a;
+}
+.botaoCadastro {
+        position: fixed;
+        margin-left: -38%;
+        margin-top: 9.5%;
+        width: 15%;
+        height: 7%;
+        border-radius: 2em;
+        background-color: transparent;
+        border-color: #ff8a8a;
+        font-size: 70%;
+        color: #ff8a8a;
+        cursor: pointer;
+}
+.botaoCadastro1 {
+        position: fixed;
+        margin-left: -19%;
+        margin-top: 9.5%;
+        width: 15%;
+        height: 7%;
+        border-radius: 2em;
+        background-color: transparent;
+        border-color: #ff8a8a;
+        font-size: 70%;
+        color: #ff8a8a;
+        cursor: pointer;
+}

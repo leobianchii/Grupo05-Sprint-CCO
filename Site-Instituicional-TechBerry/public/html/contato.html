@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/styleMin2.css">
+    <link rel="stylesheet" href="../css/contatoMin.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="headerA"></div>
+      <div class="headerB">
+        <img
+          class="logo"
+          src="../imagens\morango.png"
+          alt=""
+          onclick="location.href='../index.html'"
+        />
+        <ul class="lista">
+          <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='../login.html'">Login</li>
+          <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()" onclick="location.href='../cadastro.html'">Cadastro</li>
+          <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()" onclick="location.href='../login.html'">DashBoard</li>
+          <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()" onclick="location.href='contato.html'">Contato</li>
+        </ul>
+      </div>
+    </div>
+    <div class="contatoContainer">
+        <input type="text" name="" class="contatoInput" placeholder="*Seu Nome">
+        <input type="text" name="" class="contatoInput" placeholder="*Seu Email">
+        <input type="text" name="" class="contatoInput" placeholder="*Seu Telefone">
+        <input type="text" name="" class="contatoInput" placeholder="*Cidade/Estado">
+        <input type="text" name="" oninput="aparecerBotao()" class="contatoInput contatoEmail" placeholder="*Escreva sua Mensagem">
+    </div>
+    <button id="contatoBotaoAparecer" class="contatoBotao">Enviar Mensagem</button>
+    <div class="beader">
+        <div class="infoBeader">
+            <ul class="listaBeader">
+                <li onclick="location.href='emConstrução.html'">Quem Somos</li>
+                <li onclick="location.href='emConstrução.html'">Fale Conosco</li>
+                <li onclick="location.href='emConstrução.html'">Direitos</li>
+                <li onclick="location.href='emConstrução.html'">Termos de Uso</li>
+                <li onclick="location.href='emConstrução.html'">Politica de Privacidade</li>
+                <li onclick="location.href='emConstrução.html'">Politica de Hiperlinks</li>
+                <li onclick="location.href='emConstrução.html'">English Version</li>
+            </ul>
+            © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
+        </div>
+    </div>
+    <script src="../javascript/mouseOver.js"></script>
+    <script src="../javascript/contato.js"></script>

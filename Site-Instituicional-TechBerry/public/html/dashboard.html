@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechBerry</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/styleMin3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboardMin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="headerA"></div>
+        <div class="headerB">
+            <img class="logo" src="../imagens\morango.png" alt="" onclick="location.href='../index.html'" />
+            <ul class="lista">
+                <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()"
+                    onclick="location.href='../login.html'">Login</li>
+                <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()"
+                    onclick="location.href='../cadastro.html'">Cadastro</li>
+                <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()"
+                    onclick="location.href='../login.html'">DashBoard</li>
+                <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()"
+                    onclick="location.href='contato.html'">Contato</li>
+            </ul>
+        </div>
+    </div>
+    <div class="sensorContainers">
+        <div class="canvasA">
+        <div class="sensorContainer1">
+            <span style="position: fixed; color: rgb(255, 112, 112);">1°</span>
+            <span class="graus" style="font-weight: 600;">28°C</span>
+            <canvas id="canvas1" style="position: fixed; margin-top: -72px;"></canvas></div>
+        <div class="sensorContainer2">
+            <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
+            <span class="graus" style="font-weight: 600;">7°C</span>
+            <canvas id="canvas2" style="position: fixed; margin-top: -72px;"></canvas></div>
+        <div class="sensorContainer3">
+            <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
+            <span class="graus" style="font-weight: 600;">18°C</span>
+            <canvas id="canvas3" style="position: fixed; margin-top: -72px;"></canvas></div>
+        <div class="sensorContainer4">
+            <span style="position: fixed; color: rgb(255, 112, 112);">4°</span>
+            <span class="graus" style="font-weight: 600;">33°C</span>
+            <span style="color: #000000; position: fixed; font-size: 200px; z-index: 1; opacity: 0.8; margin-left: 130px; margin-top: -30px;">!</span>
+            <canvas id="canvas4" style="position: fixed; margin-top: -72px;"></canvas></div>
+        </div>
+    </div>
+    <div class="dadosContainer">
+        <div><canvas id="canvas5" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px;"></canvas></div>
+        <div><canvas id="canvas6"></canvas></div>
+    </div>
+    <div class="beader">
+        <div class="infoBeader">
+            <ul class="listaBeader">
+                <li onclick="location.href='emConstrução.html'">Quem Somos</li>
+                <li onclick="location.href='emConstrução.html'">Fale Conosco</li>
+                <li onclick="location.href='emConstrução.html'">Direitos</li>
+                <li onclick="location.href='emConstrução.html'">Termos de Uso</li>
+                <li onclick="location.href='emConstrução.html'">Politica de Privacidade</li>
+                <li onclick="location.href='emConstrução.html'">Politica de Hiperlinks</li>
+                <li onclick="location.href='emConstrução.html'">English Version</li>
+            </ul>
+            © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
+        </div>
+        <script src="../javascript/mouseOver.js"></script>
+        <script>
+            var ctx2 = document.getElementById("canvas1");
+    var dashboardChart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                label: '# of Votes',
+                data: [28, 3],
+                backgroundColor: [
+                   'rgb(255, 72, 0)',
+                   'white'
+                ],
+                borderWidth: 0
+            }]
+        
+        },
+        options: {
+            rotation: 86 * Math.PI,/** This is where you need to work out where 89% is */
+            circumference: 57.2 * Math.PI,/** put in a much smaller amount  so it does not take up an entire semi circle */
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            cutoutPercentage: 50,
+            tooltips : false,
+        }
+    },
+    );
+          </script>
+          <script>
+            var ctx2 = document.getElementById("canvas2");
+    var dashboardChart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                label: '# of Votes',
+                data: [3, 10],
+                backgroundColor: [
+                   'rgb(72, 255, 0)',
+                   'white'
+                ],
+                borderWidth: 0
+            }]
+        
+        },
+        options: {
+            rotation: 86 * Math.PI,/** This is where you need to work out where 89% is */
+            circumference: 57.2 * Math.PI,/** put in a much smaller amount  so it does not take up an entire semi circle */
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            cutoutPercentage: 50,
+            tooltips : false,
+        }
+    },
+    );
+          </script>
+          <script>
+            var ctx2 = document.getElementById("canvas3");
+    var dashboardChart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                label: '# of Votes',
+                data: [14, 10],
+                backgroundColor: [
+                   'rgb(251, 255, 0)',
+                   'white'
+                ],
+                borderWidth: 0
+            }]
+        
+        },
+        options: {
+            rotation: 86 * Math.PI,/** This is where you need to work out where 89% is */
+            circumference: 57.2 * Math.PI,/** put in a much smaller amount  so it does not take up an entire semi circle */
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            cutoutPercentage: 50,
+            tooltips : false,
+        }
+    },
+    );
+          </script>
+          <script>
+            var ctx2 = document.getElementById("canvas4");
+    var dashboardChart2 = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                label: '# of Votes',
+                data: [14],
+                backgroundColor: [
+                   'rgb(255, 0, 0)',
+                   'white'
+                ],
+                borderWidth: 0
+            }]
+        
+        },
+        options: {
+            rotation: 86 * Math.PI,/** This is where you need to work out where 89% is */
+            circumference: 57.2 * Math.PI,/** put in a much smaller amount  so it does not take up an entire semi circle */
+            legend: {
+                display: false
+            },
+            tooltip: {
+                enabled: false
+            },
+            cutoutPercentage: 50,
+            tooltips : false,
+        }
+    },
+    );
+          </script>
+          <script>
+            const labels = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data = {
+              labels: labels,
+              datasets: [{
+                label: 'Media Temperatura',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [15, 10, 25, 22, 24, 30, 50],
+              }]
+            };
+          
+            const config = {
+              type: 'bar',
+              data: data,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart = new Chart(
+              document.getElementById('canvas5'),
+              config
+            );
+          </script>
+          </script>
+          <script>
+            const labels2 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data2 = {
+              labels: labels2,
+              datasets: [{
+                label: 'Media Umidade',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [82, 75, 90, 72, 92, 60, 100],
+              }]
+            };
+          
+            const config2 = {
+              type: 'bar',
+              data: data2,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart2 = new Chart(
+              document.getElementById('canvas6'),
+              config2
+            );
+          </script>
+          

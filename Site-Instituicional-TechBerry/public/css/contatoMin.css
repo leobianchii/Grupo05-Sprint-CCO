@@ -1,0 +1,38 @@
+@media only screen and (max-width: 1700px) {
+    .contatoContainer {
+        position: fixed;
+        border: 4px solid #ff8a8a;
+        width: 50%;
+        height: 62%;
+        margin-left: 25%;
+        margin-top: 1%;
+        background-color: rgb(255, 224, 224);
+    }
+    .contatoInput {
+        position: relative;
+        width: 90%;
+        height: 7%;
+        margin-left: 4.5%;
+        margin-top: 2.2%;
+        border: 2px solid #ff8a8a;
+        border-radius: 1em;
+        outline: none;
+    }
+    .contatoEmail {
+        height: 40%;
+    }
+    .contatoBotao {
+        position: fixed;
+        width: 10%;
+        height: 10%;
+        border: 2px solid #ff8a8a;
+        background-color: transparent;
+        border-radius: 2em;
+        margin-left: 78%;
+        margin-top: 32.2%;
+        font-size: 70%;
+        color: #ff8a8a;
+        cursor: pointer;
+        display: none;
+    }
+}

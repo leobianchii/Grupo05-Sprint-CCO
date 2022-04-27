@@ -1,0 +1,58 @@
+@media only screen and (max-width: 1700px) {
+.dadosContainer {
+    position: fixed;
+    border: 4px solid #ffc3c3;
+    width: 30%;
+    height: 65%;
+    margin-left: 65%;
+    margin-top: 1%;
+    background-color: white;
+}
+.sensorContainers {
+    position: fixed;
+    border: 4px solid #ffc3c3;
+    width: 50%;
+    height: 65%;
+    margin-left: 8%;
+    margin-top: 1%;
+    background-color: white;
+}
+.sensorContainer1 {
+    position: fixed;
+    border: 2px solid #ffc3c3;
+    width: 23%;
+    height: 28%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+.sensorContainer2 {
+    position: fixed;
+    border: 2px solid #ffc3c3;
+    width: 23%;
+    height: 28%;
+    margin-left: 25.7%;
+    margin-top: 1%;
+}
+.sensorContainer3 {
+    position: fixed;
+    border: 2px solid #ffc3c3;
+    width: 23%;
+    height: 28%;
+    margin-left: 1%;
+    margin-top: 15.2%;
+}
+.sensorContainer4 {
+    position: fixed;
+    border: 2px solid #ffc3c3;
+    width: 23%;
+    height: 28%;
+    margin-left: 25.7%;
+    margin-top: 15.2%;
+}
+.graus {
+    position: fixed;
+    color: rgb(255, 112, 112);
+    margin-top: 130px;
+    margin-left: 130px;
+}
+}
