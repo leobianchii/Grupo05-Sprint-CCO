@@ -1,78 +1,84 @@
-.container_cadastro{
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-}
-
 .cadastroContainer {
-        border-color: #ffc3c3;
-        width: 50%;
-        height: 50%;
-        border-style: solid;
-        background-color: white;        
-}
-
-.cadastro_inputs{    
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-}
-
-.cadastro_button{
-        margin-top: 8%;
-        width: 100%;
-        display: flex;
+        position: relative;
         justify-content: center;
-        align-content: center;
-}
-
-.cadastro-box{
+        border-color: #ffc3c3;
+        width: 45%;
+        height: 370px;
+        border-style: solid;
+        margin-left: 28%;
         margin-top: 3%;
-        width: calc(100% / 2 - 20px);
+        background-color: white;
+        font-family: Arial;
+        color: #ff8a8a;
+        font-weight: 600;
 }
-
-
 .cadastroInput {
-        height: 35px;
-        width: 100%;
         border: none;
         border-bottom: 1px solid red;
+        width: 45%;
+        height: 8%;
+        font-size: 100%;
+        margin-left: 2%;
+        margin-top: 8%;
         outline: none;
 }
-
-.Input {
-        color: #ff8a8a;
-        font-size: 30px;
+.nomeInput, .emailInput {
+        position: fixed;
+        margin-left: 1%;
+        margin-top: 1%;
+        font-size: 75%;
 }
-.selectCustom { 
-        width: 100%;
-        height: 55px;
+.senhaInput {
+        position: fixed;
+        margin-left: -42.2%;
+        margin-top: 7%;
+        font-size: 75%;
+}
+.cnpjInput {
+        position: fixed;
+        margin-left: 1%;
+        margin-top: 0.7%;
+        font-size: 75%;
+}
+.empresaInput {
+        position: fixed;
+        margin-left: -42.2%;
+        margin-top: 7%;
+        font-size: 75%;
+}
+.selectCustom {
+        margin-left: 2.5%;
+        width: 120%;
+        min-width: none;
+        max-width: 45%;
         border: 1px solid red;
         border-radius: 0.25em;
-        font-size: 1.25rem;
         padding: 0.25em 0.5em;
-        margin-top: 22px;
+        font-size: 1.25rem;
+        line-height: 1.1;
         background-color: #fff;
         background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
         color: #ff8a8a;
 }
 .botaoCadastro {
-        width: 20%;
-        height: 45px;
+        position: fixed;
+        margin-left: -38%;
+        margin-top: 9.5%;
+        width: 15%;
+        height: 7%;
         border-radius: 2em;
         background-color: transparent;
         border-color: #ff8a8a;
         font-size: 70%;
         color: #ff8a8a;
         cursor: pointer;
-        margin-right: 5%;
 }
 .botaoCadastro1 {
-        width: 20%;
-        height: 45px;
+        position: fixed;
+        margin-left: -19%;
+        margin-top: 9.5%;
+        width: 15%;
+        height: 7%;
         border-radius: 2em;
         background-color: transparent;
         border-color: #ff8a8a;
@@ -80,20 +86,3 @@
         color: #ff8a8a;
         cursor: pointer;
 }
-
-.beader {
-        background-color: #ff5f5f;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 15%;
-        box-shadow: 3px 3px 10px;
-    }
-    
-    .infoBeader {
-        text-align: center;
-        font-size: 70%;
-        margin-top: 2%;
-        font-weight: 600;
-        color: #ffffff;
-    }
