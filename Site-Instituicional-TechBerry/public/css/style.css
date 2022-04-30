@@ -1,113 +1,190 @@
-@media only screen and (min-width: 1800px) {
-    body {
-        background-color: rgb(255, 238, 238);
-        font-size: 180%;
-        font-family: Arial;
-        margin: 0;
-    }
-    .logo {
-        position: fixed;
-        width: 6%;
-        margin-left: 2%;
-        margin-top: -1%;
-        cursor: pointer;
-    }
-    .headerB {
-        position: fixed;
-        background-image: linear-gradient(45deg, #ffc3c3, #ff5f5f);
-        width: 100%;
-        height: 12%;
-        transform: skewY(-2deg);;
-        margin-top: 0%;
-    }
-    .headerA {
-        position: fixed;
-        background-image: linear-gradient(45deg, #ff5f5f, #ff5f5f);
-        width: 100%;
-        height: 10%;
-        transform: skewY( 2deg);
-    }
-    .beader {
-        background-color: #ff5f5f;
-        position: fixed;
-        width: 100%;
-        margin-top: 46%;
-        height: 20%;
-        box-shadow: 3px 3px 10px;
-    }
-    .infoBeader {
-        text-align: center;
-        font-size: 70%;
-        margin-top: 1.5%;
-        font-weight: 600;
-        color: #ffffff;
-    }
-    .lista {
-        list-style-type: none;
-        display: flex;
-        text-align: center;
-        margin-left: 50%;
-        margin-top: 3%;
-        transform: skewY( 2deg);
-        font-weight: 600;
-        justify-content: space-evenly;
-        color: #ffe4e4;
-        font-size: 100%;
-    }
-    .listaBeader {
-        list-style-type: none;
-        display: flex;
-        text-align: center;
-        margin-left: 0;
-        justify-content: space-around;
-        font-size: 90%;
-    }
-    li {
-        cursor: pointer;
-    }
-    .nomeEmpresa {
-        font-family: Patua -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-weight: 800;
-        position: fixed;
-        margin-left: 25%;
-        margin-top: 15%;
-        color: rgb(255, 81, 81);
-        font-size: 150%;
-        position: fixed;
-    }
-    .info {
-        position: fixed;
-        text-align: center;
-        margin-top: 1%;
-        margin-left: -18.5%;
-        font-size: 90%;
-    }
-    .botaoS {
-        font-family: Patua -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-weight: 600;
-        position: fixed;
-        margin-top: 18%;
-        margin-left: -11.5%;
-        font-size: 60%;
-        border-radius: 1em;
-        background-color: transparent;
-        border-color: #ff5f5f;
-        color: rgb(255, 81, 81);
-        width: 10%;
-        height: 5%;
-        cursor: pointer;
-    }
-    .imagem {
-        position: fixed;
-        width: 40%;
-        margin-top: 5%;
-        margin-left: 55%;
-    }
-    @font-face {
-        font-family: Patua One ;
-        src: url(fonte\PatuaOne-Regular.ttf);
-    }
-    #text-element {
-        font-family: 'Patua One', Arial, sans-serif;
-    }
+body {
+    background-color: rgb(255, 238, 238);
+    font-size: 180%;
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+}
+
+.header{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+
+.logo {
+    position: absolute;
+    width: 6%;
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+.headerB {
+    display: flex;
+    justify-content: space-between;
+    position:absolute; 
+    background-image: linear-gradient(45deg, #ffc3c3, #ff5f5f);
+    width: 100%;
+    height: 12vh;
+    transform: skewY(-2deg);
+}
+
+.headerA {
+    position: absolute;
+    background-image: linear-gradient(45deg, #ff5f5f, #ff5f5f);
+    width: 100%;
+    height: 10vh;
+    transform: skewY(2deg);
+}
+
+.beader {
+    background-color: #ff5f5f;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 8%;
+    box-shadow: 3px 3px 10px;
+}
+
+.infoBeader {
+    text-align: center;
+    font-size: 70%;
+    margin-top: 2%;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.lista {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    width: 70%;
+    margin-left: 50%;
+    margin-top: 3%;
+    transform: skewY(2deg);
+    font-weight: 600;
+    justify-content: space-evenly;
+    color: #ffe4e4;
+    font-size: 100%;
+}
+
+.listaBeader {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    margin-left: 0;
+    justify-content: space-around;
+    font-size: 90%;
+}
+
+li {
+    cursor: pointer;
+}
+
+.nomeEmpresa {
+    width: 90%;
+    font-family: Patua -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    position: relative;
+    margin-left: 5%;
+    margin-top: 15%;
+    color: rgb(255, 81, 81);
+    font-size: 150%;
+    display: flex;
+    flex-direction: row;
+}
+
+.info {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
+}
+
+.nomeEmpresa .info b{
+    font-size: 150%;
+}
+
+.botaoS {
+    font-family: Patua -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    position: relative;
+    margin-left: 40%;
+    font-size: 60%;
+    border-radius: 1em;
+    background-color: transparent;
+    border-color: #ff5f5f;
+    color: rgb(255, 81, 81);
+    width: 20%;
+    height: 10%;
+    cursor: pointer;
+}
+
+.imagem {
+    position: relative;
+    width: 40%;
+    margin-top: -10%;
+}
+
+@font-face {
+    font-family: Patua One;
+    src: url(fonte\PatuaOne-Regular.ttf);
+}
+
+#text-element {
+    font-family: 'Patua One', Arial, sans-serif;
+}
+
+.calculadoraContainer {
+    background-image: linear-gradient(45deg, #ffc3c3, #ff5f5f);
+    width: 100%;
+    height: 400px;
+    margin-top: 2%;
+    text-align: center;
+}
+.registreJa {
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 1000;
+    color: #ff4040;
+    font-size: 70px;
+    text-align: center;
+    align-items: center;
+    margin-top: 2%;
+    width: 100%;
+    height: 400px;
+}
+.botaoRegistra {
+    position: relative;
+    font-size: 40%;
+    border-radius: 1em;
+    background-color: #ff5959;
+    border-color: #ff5f5f;
+    color: white;
+    width: 300px;
+    height: 55px;
+    cursor: pointer;
+}   
+/* width */
+::-webkit-scrollbar {
+width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: rgb(255, 238, 238); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #e94f4f; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #e94f4f; 
 }

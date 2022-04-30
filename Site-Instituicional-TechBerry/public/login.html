@@ -1,120 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/styleMin.css">
-    <link rel="stylesheet" href="css/loginMin.css">
-    <script src="./js/funcoes.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+  <script src="./js/funcoes.js"></script>
 </head>
+
 <body>
-    <div class="header">
-        <div class="headerA"></div>
-        <div class="headerB">
-          <img
-            class="logo"
-            src="imagens\morango.png"
-            alt=""
-            onclick="location.href='index.html'"
-          />
-          <ul class="lista">
-            <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login</li>
-            <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()" onclick="location.href='cadastro.html'">Cadastro</li>
-            <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()" onclick="location.href='login.html'">DashBoard</li>
-            <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()" onclick="location.href='html/contato.html'">Contato</li>
-          </ul>
-        </div>
-      </div>
-      <div class="loginContainer">
+  <div class="header">
+    <div class="headerA"></div>
+    <div class="headerB">
+      <img class="logo" src="imagens\morango.png" alt="" onclick="location.href='index.html'" />
+      <ul class="lista">
+        <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login
+        </li>
+        <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()"
+          onclick="location.href='cadastro.html'">Cadastro</li>
+        <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()"
+          onclick="location.href='login.html'">DashBoard</li>
+        <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()"
+          onclick="location.href='html/emConstrução.html'">Contato</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="loginContainer">
+    <div class="content_login">
+      <div class="content_total">
+        <div class="login_box">
           <span class="loginNomes">Email</span>
-            <input type="text" id="email_input" class="emailEstilo"> <br> <br>
-          <span class="loginNomes">Senha</span>
-            <input type="password" id="senha_input" class="senhaEstilo">
-            <span class="inputErrado" id="credencialErrado">Credenciais Incorretas</span>
-            <span class="inputErrado" id="credencialErrado1">Preencha os campos</span>
-            <button id="conectar" onclick="entrar()" class="botaoLogin">Conectar-se</button> <br>
-            <span class="senhaEsqueceu" onclick="location.href='htmlcontato.html'">Esqueceu a Senha</span> <br>
-            <span  class="naoTem" onclick="location.href='cadastro.html'">Não tem conta? Cadastre-se</span>
-      </div>
-      <div class="beader">
-        <div class="infoBeader">
-            <ul class="listaBeader">
-              <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
-              <li onclick="location.href='html/emConstrução.html'">Fale Conosco</li>
-              <li onclick="location.href='html/emConstrução.html'">Direitos</li>
-              <li onclick="location.href='html/emConstrução.html'">Termos de Uso</li>
-              <li onclick="location.href='html/emConstrução.html'">Politica de Privacidade</li>
-              <li onclick="location.href='html/emConstrução.html'">Politica de Hiperlinks</li>
-              <li onclick="location.href='html/emConstrução.html'">English Version</li>
-            </ul>
-            © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
+          <input type="text" id="email_input" class="emailEstilo"> <br> <br>
         </div>
+        <div class="login_box"></div>
+        <span class="loginNomes">Senha</span>
+        <input type="password" id="senha_input" class="senhaEstilo">
+      </div>
+      <div class="logar_box">
+        <span class="inputErrado" id="credencialErrado">Credenciais Incorretas</span>
+        <span class="inputErrado" id="credencialErrado1">Preencha os campos</span>
+        <button id="conectar" onclick="entrar()" class="botaoLogin">Conectar-se</button> <br>
+        <span class="senhaEsqueceu" onclick="location.href='html/emConstrução.html'">Esqueceu a Senha!</span> <br>
+        <span class="naoTem" onclick="location.href='cadastro.html'">Não tem conta? Cadastre-se</span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="beader">
+    <div class="infoBeader">
+      <ul class="listaBeader">
+        <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
+        <li onclick="location.href='html/emConstrução.html'">Fale Conosco</li>
+        <li onclick="location.href='html/emConstrução.html'">Direitos</li>
+        <li onclick="location.href='html/emConstrução.html'">Termos de Uso</li>
+        <li onclick="location.href='html/emConstrução.html'">Politica de Privacidade</li>
+        <li onclick="location.href='html/emConstrução.html'">Politica de Hiperlinks</li>
+        <li onclick="location.href='html/emConstrução.html'">English Version</li>
+      </ul>
+      © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
+    </div>
 </body>
+
 </html>
 <script src="javascript/mouseOver.js"></script>
 <script>
-
-
   function entrar() {
 
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
 
-      // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-      if (emailVar == "" || senhaVar == "") {
-          return false;
-      }
-
-      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-          return false;
-      }
-
-      console.log("FORM LOGIN: ", emailVar);
-      console.log("FORM SENHA: ", senhaVar);
-
-      fetch("/usuarios/autenticar", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-              emailServer: emailVar,
-              senhaServer: senhaVar
-          })
-      }).then(function (resposta) {
-          console.log("ESTOU NO THEN DO entrar()!")
-
-          if (resposta.ok) {
-              console.log(resposta);
-              location.href = 'html/dashboard.html'
-              resposta.json().then(json => {
-                  console.log(json);
-                  console.log(JSON.stringify(json));
-
-                  sessionStorage.EMAIL_USUARIO = json.email;
-                  sessionStorage.NOME_USUARIO = json.nome;
-                  sessionStorage.ID_USUARIO = json.id;
-
-              });
-
-          } else {
-
-              console.log("Houve um erro ao tentar realizar o login!");
-                credencialErrado.style.display = 'block'
-              resposta.text().then(texto => {
-                  console.error(texto);
-              });
-          }
-
-      }).catch(function (erro) {
-          console.log(erro);
-      })
-
+    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    if (emailVar == "" || senhaVar == "") {
       return false;
-  }
+    }
 
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+      return false;
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+        location.href = 'html/dashboard.html'
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.ID_USUARIO = json.id;
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+        credencialErrado.style.display = 'block'
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
 </script>

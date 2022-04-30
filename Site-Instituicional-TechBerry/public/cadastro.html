@@ -1,67 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="stylesheet" href="css/styleMin1.css">
-    <script src="./js/funcoes.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <script src="./js/funcoes.js"></script>
 </head>
-<body>
-    <div class="header">
-        <div class="headerA"></div>
-        <div class="headerB">
-          <img
-            class="logo"
-            src="imagens\morango.png"
-            alt=""
-            onclick="location.href='index.html'"
-          />
-          <ul class="lista">
-            <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login</li>
-            <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()" onclick="location.href='cadastro.html'">Cadastro</li>
-            <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()" onclick="location.href='login.html'">DashBoard</li>
-            <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()" onclick="location.href='html/contato.html'">Contato</li>
-          </ul>
+
+<body style="display: flex; flex-direction: column;">
+  <div class="header">
+    <div class="headerA"></div>
+    <div class="headerB">
+      <img class="logo" src="imagens\morango.png" alt="" onclick="location.href='index.html'" />
+      <ul class="lista">
+        <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login
+        </li>
+        <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()"
+          onclick="location.href='cadastro.html'">Cadastro</li>
+        <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()"
+          onclick="location.href='login.html'">DashBoard</li>
+        <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()"
+          onclick="location.href='html/emConstrução.html'">Contato</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container_cadastro">
+    <div class="cadastroContainer">
+      <div class="cadastro_inputs">
+        <div class="cadastro-box">
+          <span class="Input">Nome Do Cliente</span>
+          <input id="nome_input" class="cadastroInput" type="text">
+        </div>
+        <div class="cadastro-box">
+          <span class="Input">Email</span>
+          <input id="email_input" class="cadastroInput" type="text">
+        </div>
+        <div class="cadastro-box">
+          <span class="Input">Senha</span>
+          <input id="senha_input" class="cadastroInput" type="password">
+        </div>
+        <div class="cadastro-box">
+          <span class="Input">CNPJ</span>
+          <input id="cnpj_input" class="cadastroInput" type="text">
+        </div>
+        <div class="cadastro-box">
+          <span class="Input">Nome Da Empresa</span>
+          <input id="empresa_input" class="cadastroInput" type="text">
+        </div>
+        <div class="cadastro-box">
+          <select class="selectCustom" name="" id="">
+            <option value="">São Paulo</option>
+            <option value="">Minas Gerais</option>
+            <option value="">Mato Grosso Do Sul</option>
+            <option value="">Piauí</option>
+          </select>
         </div>
       </div>
-      <div class="cadastroContainer">
-        <span class="nomeInput">Nome Do Proprietario</span>
-        <input id="nome_input" class="cadastroInput" type="text" >
-        <span class="emailInput">Email</span>
-        <input id="email_input" class="cadastroInput" type="text" >
-        <span class="senhaInput">Senha</span>
-        <input id="senha_input" class="cadastroInput" type="password" >
-        <span class="cnpjInput">CNPJ</span>
-        <input id="cnpj_input" class="cadastroInput" type="text" >
-        <span class="empresaInput">Nome Da Empresa</span>
-        <input id="empresa_input" class="cadastroInput" type="text" >
-        <select class="selectCustom" name="" id="">
-          <option value="">São Paulo</option>
-          <option value="">Minas Gerais</option>
-          <option value="">Mato Grosso Do Sul</option>
-          <option value="">Piauí</option>
-        </select> 
+      <div class="cadastro_button">
         <button class="botaoCadastro" onclick="location.href='principal.html'">Voltar</button>
         <button class="botaoCadastro1" onclick="cadastrar()">Confirmar Cadastro</button>
       </div>
-      <div class="beader">
-        <div class="infoBeader">
-            <ul class="listaBeader">
-              <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
-              <li onclick="location.href='html/emConstrução.html'">Fale Conosco</li>
-              <li onclick="location.href='html/emConstrução.html'">Direitos</li>
-              <li onclick="location.href='html/emConstrução.html'">Termos de Uso</li>
-              <li onclick="location.href='html/emConstrução.html'">Politica de Privacidade</li>
-              <li onclick="location.href='html/emConstrução.html'">Politica de Hiperlinks</li>
-              <li onclick="location.href='html/emConstrução.html'">English Version</li>
-            </ul>
-            © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
-        </div>
+    </div>
+  </div>
+
+
+  <div class="beader">
+    <div class="infoBeader">
+      <ul class="listaBeader">
+        <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
+        <li onclick="location.href='html/emConstrução.html'">Fale Conosco</li>
+        <li onclick="location.href='html/emConstrução.html'">Direitos</li>
+        <li onclick="location.href='html/emConstrução.html'">Termos de Uso</li>
+        <li onclick="location.href='html/emConstrução.html'">Politica de Privacidade</li>
+        <li onclick="location.href='html/emConstrução.html'">Politica de Hiperlinks</li>
+        <li onclick="location.href='html/emConstrução.html'">English Version</li>
+      </ul>
+      © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
+    </div>
+  </div>
+
 </body>
+
 </html>
 <script src="javascript/mouseOver.js"></script>
 <script>
@@ -72,56 +96,56 @@
     cnpj_input.style.backgroundColor = '#ffc3c3'
     empresa_input.style.backgroundColor = '#ffc3c3'
   }
+
   function cadastrar() {
 
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
-      var nomeVar = nome_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
-      var cnpjVar = cnpj_input.value;
-      var empresaVar = empresa_input.value;
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var cnpjVar = cnpj_input.value;
+    var empresaVar = empresa_input.value;
 
-      if (nomeVar == "" || emailVar == "" || senhaVar == "" || cnpjVar == "" || empresaVar == "") {
-          limpar()
-          return false;
-      }
-
-      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-          email_input.value = ''
-          email_input.placeholder = 'Email invalido'
-          email_input.style.backgroundColor = '#ffc3c3'
-          return false;
-      }
-      // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
-              nomeServer: nomeVar,
-              emailServer: emailVar,
-              senhaServer: senhaVar,
-              cnpjServer: cnpjVar,
-              empresaServer: empresaVar
-          })
-      }).then(function (resposta) {
-
-          console.log("resposta: ", resposta);
-
-          if (resposta.ok) {
-              window.location = "login.html";
-          } else {
-              throw ("Houve um erro ao tentar realizar o cadastro!");
-          }
-      }).catch(function (resposta) {
-          console.log(`#ERRO: ${resposta}`);
-      });
-
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || cnpjVar == "" || empresaVar == "") {
+      limpar()
       return false;
-  }
+    }
 
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+      email_input.value = ''
+      email_input.placeholder = 'Email invalido'
+      email_input.style.backgroundColor = '#ffc3c3'
+      return false;
+    }
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        cnpjServer: cnpjVar,
+        empresaServer: empresaVar
+      })
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+        window.location = "login.html";
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+  }
 </script>
