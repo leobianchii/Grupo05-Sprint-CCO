@@ -5,6 +5,7 @@ use TechBerry;
 create table Cliente(
 	idCliente int primary key auto_increment,
     nomeCliente varchar(45),
+    nomeEmpresa varchar(45),
     cnpjCliente char(14)
 );
 
@@ -17,7 +18,7 @@ create table telefone(
 
 create table Usuario(
 	idUsuario int primary key,
-    login varchar(45),
+    email varchar(45),
     senha varchar(20),
     fkCliente int,
     foreign key (fkCliente) references Cliente(idCliente)
