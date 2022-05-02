@@ -6,7 +6,7 @@
     width: 80px;
     height: 40px;
     margin-left: 65%;
-    margin-top: -0.5%;
+    margin-top: 1%;
     background-color: rgb(255, 80, 80);
     font-size: 12px;
     font-family: Arial;
@@ -21,7 +21,7 @@
     width: 80px;
     height: 40px;
     margin-left: 71.5%;
-    margin-top: -0.5%;
+    margin-top: 1%;
     background-color: rgb(255, 112, 112);
     font-size: 12px;
     font-family: Arial;
@@ -35,7 +35,7 @@
     width: 30%;
     height: 65%;
     margin-left: 65%;
-    margin-top: 1%;
+    margin-top: 3%;
     background-color: white;
 }
 .sensorContainers {
@@ -44,7 +44,7 @@
     width: 50%;
     height: 65%;
     margin-left: 8%;
-    margin-top: 1%;
+    margin-top: 3%;
     background-color: white;
 }
 .sensorContainer1 {
@@ -86,7 +86,7 @@
 .graus {
     position: fixed;
     color: rgb(255, 112, 112);
-    margin-top: 130px;
-    margin-left: 130px;
+    margin-top: 12%;
+    margin-left: 9.5%;
 }
 }
