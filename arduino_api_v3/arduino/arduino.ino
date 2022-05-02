@@ -42,4 +42,5 @@ else
 Serial.print("0");
 }
 Serial.println();
-}
+delay(5000);
+} 
