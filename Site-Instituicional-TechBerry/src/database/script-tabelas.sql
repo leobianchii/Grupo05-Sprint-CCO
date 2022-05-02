@@ -23,6 +23,7 @@ create table telefone(
 
 create table Usuario(
 	idUsuario int primary key,
+    nome varchar (45),
     email varchar(45),
     senha varchar(20),
     cnpj char(14),
