@@ -30,15 +30,15 @@
       </div>
       <div class="cadastroContainer">
         <span class="nomeInput">Nome Do Proprietario</span>
-        <input id="nome_input" class="cadastroInput" type="text" >
+        <input id="nome_input" class="cadastroInput" type="text" oninput="nameP()">
         <span class="emailInput">Email</span>
-        <input id="email_input" class="cadastroInput" type="text" >
+        <input id="email_input" class="cadastroInput" type="text" oninput="emailP()">
         <span class="senhaInput">Senha</span>
-        <input id="senha_input" class="cadastroInput" type="password" >
+        <input id="senha_input" class="cadastroInput" type="password" oninput="senhaP()">
         <span class="cnpjInput">CNPJ</span>
-        <input id="cnpj_input" class="cadastroInput" type="text" >
+        <input id="cnpj_input" class="cadastroInput" type="text" oninput="cnpjP()">
         <span class="empresaInput">Nome Da Empresa</span>
-        <input id="empresa_input" class="cadastroInput" type="text" >
+        <input id="empresa_input" class="cadastroInput" type="text" oninput="empresaP()">
         <select class="selectCustom" name="" id="">
           <option value="">São Paulo</option>
           <option value="">Minas Gerais</option>
@@ -65,43 +65,57 @@
 </html>
 <script src="javascript/mouseOver.js"></script>
 <script>
-  function limpar() {
-    nome_input.style.backgroundColor = '#ffc3c3'
-    email_input.style.backgroundColor = '#ffc3c3'
-    senha_input.style.backgroundColor = '#ffc3c3'
-    cnpj_input.style.backgroundColor = '#ffc3c3'
-    empresa_input.style.backgroundColor = '#ffc3c3'
+  function nameP() {
+    nome_input.style.backgroundColor = ''
+  }
+  function emailP() {
+    email_input.style.backgroundColor = ''
+  }
+  function cnpjP() {
+    cnpj_input.style.backgroundColor = ''
+  }
+  function senhaP() {
+    senha_input.style.backgroundColor = ''
+  }
+  function empresaP() {
+    empresa_input.style.backgroundColor = ''
   }
   function cadastrar() {
-
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
       var nomeVar = nome_input.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
       var cnpjVar = cnpj_input.value;
       var empresaVar = empresa_input.value;
-
-      if (nomeVar == "" || emailVar == "" || senhaVar == "" || cnpjVar == "" || empresaVar == "") {
-          limpar()
-          return false;
+      if (nomeVar == '') {
+        nome_input.style.backgroundColor = '#ffc3c3'
       }
-
-      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-          email_input.value = ''
-          email_input.placeholder = 'Email invalido'
-          email_input.style.backgroundColor = '#ffc3c3'
-          return false;
+      if (emailVar == '') {
+        email_input.style.backgroundColor = '#ffc3c3'
       }
-      // Enviando o valor da nova input
+      if (senhaVar == '') {
+        senha_input.style.backgroundColor = '#ffc3c3'
+      }
+      if (cnpjVar == '') {
+        cnpj_input.style.backgroundColor = '#ffc3c3'
+      }
+      if (empresaVar == '') {
+        empresa_input.style.backgroundColor = '#ffc3c3'
+      }
+      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1){
+        email_input.style.backgroundColor = '#ffc3c3'
+      }
+      if (senhaVar.length <= 8 || senhaVar == '') {
+        senha_input.style.backgroundColor = '#ffc3c3'
+      }
+      if (cnpjVar.length <= 14 || cnpjVar == '') {
+        cnpj_input.style.backgroundColor = '#ffc3c3'
+      }
       fetch("/usuarios/cadastrar", {
           method: "POST",
           headers: {
               "Content-Type": "application/json"
           },
           body: JSON.stringify({
-              // crie um atributo que recebe o valor recuperado aqui
-              // Agora vá para o arquivo routes/usuario.js
               nomeServer: nomeVar,
               emailServer: emailVar,
               senhaServer: senhaVar,
@@ -123,5 +137,4 @@
 
       return false;
   }
-
 </script>

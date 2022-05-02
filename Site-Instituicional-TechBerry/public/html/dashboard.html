@@ -33,28 +33,36 @@
     </div>
     <div class="sensorContainers">
         <div class="canvasA">
-        <div class="sensorContainer1">
+        <div onclick="hide1()" id="sensorContainer1" class="sensorContainer1">
             <span style="position: fixed; color: rgb(255, 112, 112);">1°</span>
             <span class="graus" style="font-weight: 600;">28°C</span>
             <canvas id="canvas1" style="position: fixed; margin-top: -72px;"></canvas></div>
-        <div class="sensorContainer2">
+        <div onclick="hide2()" id="sensorContainer2" class="sensorContainer2">
             <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
             <span class="graus" style="font-weight: 600;">7°C</span>
             <canvas id="canvas2" style="position: fixed; margin-top: -72px;"></canvas></div>
-        <div class="sensorContainer3">
+        <div onclick="hide3()" id="sensorContainer3" class="sensorContainer3">
             <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
             <span class="graus" style="font-weight: 600;">18°C</span>
             <canvas id="canvas3" style="position: fixed; margin-top: -72px;"></canvas></div>
-        <div class="sensorContainer4">
+        <div onclick="hide4()" id="sensorContainer4" class="sensorContainer4">
             <span style="position: fixed; color: rgb(255, 112, 112);">4°</span>
             <span class="graus" style="font-weight: 600;">33°C</span>
             <span style="color: #000000; position: fixed; font-size: 200px; z-index: 1; opacity: 0.8; margin-left: 130px; margin-top: -30px;">!</span>
             <canvas id="canvas4" style="position: fixed; margin-top: -72px;"></canvas></div>
         </div>
     </div>
+    <div onclick="mudarBotao1()" id="botao1" class="botao1">Temperatura</div>
+    <div onclick="mudarBotao2()" id="botao2" class="botao2">Umidade</div>
     <div class="dadosContainer">
-        <div><canvas id="canvas5" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px;"></canvas></div>
-        <div><canvas id="canvas6"></canvas></div>
+        <div><canvas id="canvas5" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: block;"></canvas></div>
+        <div><canvas id="canvas6" style="display: block;"></canvas></div>
+        <div><canvas id="canvas7" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas8" style="display: none;"></canvas></div>
+        <div><canvas id="canvas9" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas10" style="display: none;"></canvas></div>
+        <div><canvas id="canvas11" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas12" style="display: none;"></canvas></div>
     </div>
     <div class="beader">
         <div class="infoBeader">
@@ -70,6 +78,139 @@
             © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
         </div>
         <script src="../javascript/mouseOver.js"></script>
+        <script>
+            h1 = 1
+            h2 = 0
+            h3 = 0
+            h4 = 0
+            function mudarBotao1() {
+                botao1.style.backgroundColor = 'rgb(255, 80, 80)'
+                botao2.style.backgroundColor = 'rgb(255, 112, 112)'
+                    if (h1 == 1) {
+                        canvas5.style.display = 'block'
+                        canvas6.style.display = 'block'
+                        canvas7.style.display = 'none'
+                        canvas8.style.display = 'none'
+                        canvas9.style.display = 'none'
+                        canvas10.style.display = 'none'
+                        canvas11.style.display = 'none'
+                        canvas12.style.display = 'none'
+                    } else if (h2 == 1) {
+                        canvas5.style.display = 'none'
+                        canvas6.style.display = 'none'
+                        canvas7.style.display = 'block'
+                        canvas8.style.display = 'block'
+                        canvas9.style.display = 'none'
+                        canvas10.style.display = 'none'
+                        canvas11.style.display = 'none'
+                        canvas12.style.display = 'none'
+                    } else if (h3 == 1) {
+                        canvas5.style.display = 'none'
+                        canvas6.style.display = 'none'
+                        canvas7.style.display = 'none'
+                        canvas8.style.display = 'none'
+                        canvas9.style.display = 'block'
+                        canvas10.style.display = 'block'
+                        canvas11.style.display = 'none'
+                        canvas12.style.display = 'none'
+                    } else if (h4 == 1) {
+                        canvas5.style.display = 'none'
+                        canvas6.style.display = 'none'
+                        canvas7.style.display = 'none'
+                        canvas8.style.display = 'none'
+                        canvas9.style.display = 'none'
+                        canvas10.style.display = 'none'
+                        canvas11.style.display = 'block'
+                        canvas12.style.display = 'block'
+                    }
+            }
+            function mudarBotao2() {
+                botao1.style.backgroundColor = 'rgb(255, 112, 112)'
+                botao2.style.backgroundColor = 'rgb(255, 80, 80)'
+            }
+            function esconder() {
+                canvas5.style.display = 'none'
+                canvas6.style.display = 'none'
+                canvas7.style.display = 'none'
+                canvas8.style.display = 'none'
+                canvas9.style.display = 'none'
+                canvas10.style.display = 'none'
+                canvas11.style.display = 'none'
+                canvas12.style.display = 'none'
+            }
+            function hide1() {
+                h1 = 1
+                h2 = 0
+                h3 = 0
+                h4 = 0
+                sensorContainer1.style.borderColor = '#ff3232'
+                sensorContainer2.style.borderColor = '#ffc3c3'
+                sensorContainer3.style.borderColor = '#ffc3c3'
+                sensorContainer4.style.borderColor = '#ffc3c3'
+                canvas5.style.display = 'block'
+                canvas6.style.display = 'block'
+                canvas7.style.display = 'none'
+                canvas8.style.display = 'none'
+                canvas9.style.display = 'none'
+                canvas10.style.display = 'none'
+                canvas11.style.display = 'none'
+                canvas12.style.display = 'none'
+            }
+            function hide2() {
+                h1 = 0
+                h2 = 1
+                h3 = 0
+                h4 = 0
+                sensorContainer1.style.borderColor = '#ffc3c3'
+                sensorContainer2.style.borderColor = '#ff3232'
+                sensorContainer3.style.borderColor = '#ffc3c3'
+                sensorContainer4.style.borderColor = '#ffc3c3'
+                canvas5.style.display = 'none'
+                canvas6.style.display = 'none'
+                canvas7.style.display = 'block'
+                canvas8.style.display = 'block'
+                canvas9.style.display = 'none'
+                canvas10.style.display = 'none'
+                canvas11.style.display = 'none'
+                canvas12.style.display = 'none'
+            }
+            function hide3() {
+                h1 = 0
+                h2 = 0
+                h3 = 1
+                h4 = 0
+                sensorContainer1.style.borderColor = '#ffc3c3'
+                sensorContainer2.style.borderColor = '#ffc3c3'
+                sensorContainer3.style.borderColor = '#ff3232'
+                sensorContainer4.style.borderColor = '#ffc3c3'
+                canvas5.style.display = 'none'
+                canvas6.style.display = 'none'
+                canvas7.style.display = 'none'
+                canvas8.style.display = 'none'
+                canvas9.style.display = 'block'
+                canvas10.style.display = 'block'
+                canvas11.style.display = 'none'
+                canvas12.style.display = 'none'
+            }
+            function hide4() {
+                h1 = 0
+                h2 = 0
+                h3 = 0
+                h4 = 1
+                sensorContainer1.style.borderColor = '#ffc3c3'
+                sensorContainer2.style.borderColor = '#ffc3c3'
+                sensorContainer3.style.borderColor = '#ffc3c3'
+                sensorContainer4.style.borderColor = '#ff3232'
+                canvas5.style.display = 'none'
+                canvas6.style.display = 'none'
+                canvas7.style.display = 'none'
+                canvas8.style.display = 'none'
+                canvas9.style.display = 'none'
+                canvas10.style.display = 'none'
+                canvas11.style.display = 'block'
+                canvas12.style.display = 'block'
+            }
+        </script>
         <script>
             var ctx2 = document.getElementById("canvas1");
     var dashboardChart2 = new Chart(ctx2, {
@@ -207,10 +348,10 @@
             const data = {
               labels: labels,
               datasets: [{
-                label: 'Media Temperatura',
+                label: 'Temperatura Maxima',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [15, 10, 25, 22, 24, 30, 50],
+                data: [19, 23, 25, 22, 24, 30, 50],
               }]
             };
           
@@ -228,6 +369,72 @@
           </script>
           </script>
           <script>
+            const labels4 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data4 = {
+              labels: labels4,
+              datasets: [{
+                label: 'Temperatura Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [3, 4, 2, 10, 1, 6, 20],
+              }]
+            };
+          
+            const config4 = {
+              type: 'bar',
+              data: data4,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart4 = new Chart(
+              document.getElementById('canvas8'),
+              config4
+            );
+          </script>
+          </script>
+          <script>
+            const labels3 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data3 = {
+              labels: labels3,
+              datasets: [{
+                label: 'Temperatura Maxima',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [28, 22, 19, 33, 24, 26, 50],
+              }]
+            };
+          
+            const config3 = {
+              type: 'bar',
+              data: data3,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart3 = new Chart(
+              document.getElementById('canvas7'),
+              config3
+            );
+          </script>
+          </script>
+          <script>
             const labels2 = [
               '08/04',
               '09/04',
@@ -240,10 +447,10 @@
             const data2 = {
               labels: labels2,
               datasets: [{
-                label: 'Media Umidade',
+                label: 'Temperatura Minima',
                 backgroundColor: 'rgba(0,174,255,1)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [82, 75, 90, 72, 92, 60, 100],
+                data: [6, 10, 9, 7, 5, 6, 20],
               }]
             };
           
@@ -259,4 +466,133 @@
               config2
             );
           </script>
+          <script>
+            const labels5 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data5 = {
+              labels: labels5,
+              datasets: [{
+                label: 'Temperatura Maxima',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [31, 29, 25, 30, 27, 21, 50],
+              }]
+            };
+          
+            const config5 = {
+              type: 'bar',
+              data: data5,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart5 = new Chart(
+              document.getElementById('canvas9'),
+              config5
+            );
+          </script>
+          <script>
+            const labels6 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data6 = {
+              labels: labels6,
+              datasets: [{
+                label: 'Temperatura Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [8, 4, 1, 5, 2, 10, 20],
+              }]
+            };
+          
+            const config6 = {
+              type: 'bar',
+              data: data6,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart6 = new Chart(
+              document.getElementById('canvas10'),
+              config6
+            );
+          </script>
+          <script>
+            const labels7 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data7 = {
+              labels: labels7,
+              datasets: [{
+                label: 'Temperatura Maxima',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [32, 29, 30, 34, 31, 19, 50],
+              }]
+            };
+          
+            const config7 = {
+              type: 'bar',
+              data: data7,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart7 = new Chart(
+              document.getElementById('canvas11'),
+              config7
+            );
+          </script>
+          <script>
+            const labels8 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data8 = {
+              labels: labels8,
+              datasets: [{
+                label: 'Temperatura Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [9, 7, 6, 4, 5, 1, 20],
+              }]
+            };
+          
+            const config8 = {
+              type: 'bar',
+              data: data8,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart8 = new Chart(
+              document.getElementById('canvas12'),
+              config8
+            );
+          </script>
+
           

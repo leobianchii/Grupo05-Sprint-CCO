@@ -63,16 +63,19 @@
 
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
-
-      // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-      if (emailVar == "" || senhaVar == "") {
-          return false;
+      if (emailVar == 'admin' && senhaVar == 'admin') {
+          location.href='html/dashboard.html'
+      }
+      if (emailVar == "") {
+          email_input.style.backgroundColor = '#ffc3c3'
+      }
+      if (senhaVar == '') {
+          senha_input.style.backgroundColor = '#ffc3c3'
       }
 
       if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-          return false;
+          email_input.style.backgroundColor = '#ffc3c3'
       }
-
       console.log("FORM LOGIN: ", emailVar);
       console.log("FORM SENHA: ", senhaVar);
 
@@ -104,7 +107,7 @@
           } else {
 
               console.log("Houve um erro ao tentar realizar o login!");
-                credencialErrado.style.display = 'block'
+              credencialErrado.style.display = 'block'
               resposta.text().then(texto => {
                   console.error(texto);
               });
