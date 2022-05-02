@@ -29,11 +29,11 @@
             <b>Umidade</b>
         </div>
         <div style="display: flex; font-size: 25px;">
-            <b id="alert_temp" style="margin-left: 55px;"><span id="msg_temp">0</span>°C</b>
-            <b id="alert_umidade" style="margin-left: 100px;"><span id="msg_umidade">0</span>%</b>
+            <b id="alert_temp" style="margin-left: 85px;"><span id="msg_temp">0</span>°C <img id="img_temp" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px -15px -10px;"></b>
+            <b id="alert_umidade" style="margin-left: 40px;"><span id="msg_umidade">0</span>%<img id="img_umi" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px; margin: 0px -0px -10px;"></b>
         </div>
     </div>
-
+    
     <div>
         <h1>Sensor DHT 11 - Umidade</h1>
         <section style="width:100%">
@@ -270,10 +270,15 @@
             }
             // Exibir à partir do último elemento exibido anteriormente
 
-            if (valores[valores.length - 1] >= 80 || valores[valores.length - 1] <= 40) {
+            if (valores[valores.length - 1] >= 75 && valores[valores.length - 1] < 80 || valores[valores.length - 1] <= 55 && valores[valores.length - 1] > 40) {
+                alert_umidade.style.color = '#FF7F00';
+                img_umi.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+            }else if (valores[valores.length - 1] <= 40 || valores[valores.length - 1] >= 80) {
                 alert_umidade.style.color = 'red';
+                img_umi.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
             }else{
                 alert_umidade.style.color = 'black';
+                img_umi.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
             }
             
             msg_umidade.innerHTML = valores[valores.length - 1];
@@ -306,10 +311,15 @@
                 tempo[endpoint] = 0;
             }
 
-            if (valores[valores.length - 1] >= 28 || valores[valores.length - 1] <= 10) {
+            if ((valores[valores.length - 1] >= 23 && valores[valores.length - 1] < 27) || (valores[valores.length - 1] <= 16 && valores[valores.length - 1] > 13)) {
+                alert_temp.style.color = '#FF7F00';
+                img_temp.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+            }else if (valores[valores.length - 1] >= 27 || valores[valores.length - 1] <= 13) {
                 alert_temp.style.color = 'red';
+                img_temp.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
             }else{
                 alert_temp.style.color = 'black';
+                img_temp.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg'; 
             }
 
             msg_temp.innerHTML = valores[valores.length - 1];
@@ -368,7 +378,7 @@
             obterDados(luminosidade, 'luminosidade');
             obterDados(lm35Temperatura, 'lm35/temperatura');
             obterDados(chave, 'chave');
-        }, 1000);
+        }, 5000);
     </script>
 </body>
 
