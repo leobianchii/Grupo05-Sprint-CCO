@@ -24,8 +24,9 @@
             </ul>
         </div>
     </div>
-    <img src="../imagens/temp.png" alt="" style="margin-left: 4%; opacity: 0.7;">
-    <img src="../imagens/umidade.png" alt="" style="opacity: 0.7;">
+    <img src="../imagens/info (1).png" onclick="mostrarMetricas()" style="height: 30px; position: fixed; margin-left: 50px; cursor: pointer;">
+    <img id="tempMetrica" src="../imagens/temp.png" alt="" style="margin-left: 35%; display: none; position: fixed; z-index: 1;">
+    <img id="umiMetrica" src="../imagens/umidade.png" alt="" style="margin-left: 6%;display: none; position: fixed; z-index: 1;">
     <div class="sensorContainers">
         <div class="canvasA">
         <div onclick="hide1()" id="sensorContainer1" class="sensorContainer1">
@@ -34,7 +35,7 @@
             <canvas id="canvas1" style="position: fixed; margin-top: -58px;"></canvas></div>
         <div onclick="hide2()" id="sensorContainer2" class="sensorContainer2">
             <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
-            <span class="graus" style="font-weight: 600;">15°C</span>
+            <span class="graus" style="font-weight: 600;">17°C</span>
             <canvas id="canvas2" style="position: fixed; margin-top: -58px;"></canvas></div>
         <div onclick="hide3()" id="sensorContainer3" class="sensorContainer3">
             <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
@@ -82,6 +83,17 @@
         </div>
         <script src="../javascript/mouseOver.js"></script>
         <script>
+          infoM = 0
+          function mostrarMetricas() {
+            infoM++
+            if (infoM % 2 == 0) {
+              tempMetrica.style.display = 'none'
+              umiMetrica.style.display = 'none'
+            } else {
+            tempMetrica.style.display = 'block'
+            umiMetrica.style.display = 'block'
+            }
+          }
             h1 = 1
             h2 = 0
             h3 = 0
@@ -329,7 +341,7 @@
         data: {
             datasets: [{
                 label: '# of Votes',
-                data: [7, 10],
+                data: [10, 10],
                 backgroundColor: [
                    'rgb(72, 255, 0)',
                    'white'
