@@ -20,14 +20,7 @@
         <div class="headerB">
             <img class="logo" src="../imagens\morango.png" alt="" onclick="location.href='../index.html'" />
             <ul class="lista">
-                <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()"
-                    onclick="location.href='../login.html'">Login</li>
-                <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()"
-                    onclick="location.href='../cadastro.html'">Cadastro</li>
-                <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()"
-                    onclick="location.href='../login.html'">DashBoard</li>
-                <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()"
-                    onclick="location.href='contato.html'">Contato</li>
+                <li style="cursor: default;">Graficos da Dashboard</li>
             </ul>
         </div>
     </div>
@@ -35,11 +28,11 @@
         <div class="canvasA">
         <div onclick="hide1()" id="sensorContainer1" class="sensorContainer1">
             <span style="position: fixed; color: rgb(255, 112, 112);">1°</span>
-            <span class="graus" style="font-weight: 600;">28°C</span>
+            <span class="graus" style="font-weight: 600;">26°C</span>
             <canvas id="canvas1" style="position: fixed; margin-top: -72px;"></canvas></div>
         <div onclick="hide2()" id="sensorContainer2" class="sensorContainer2">
             <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
-            <span class="graus" style="font-weight: 600;">7°C</span>
+            <span class="graus" style="font-weight: 600;">15°C</span>
             <canvas id="canvas2" style="position: fixed; margin-top: -72px;"></canvas></div>
         <div onclick="hide3()" id="sensorContainer3" class="sensorContainer3">
             <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
@@ -47,7 +40,7 @@
             <canvas id="canvas3" style="position: fixed; margin-top: -72px;"></canvas></div>
         <div onclick="hide4()" id="sensorContainer4" class="sensorContainer4">
             <span style="position: fixed; color: rgb(255, 112, 112);">4°</span>
-            <span class="graus" style="font-weight: 600;">33°C</span>
+            <span class="graus" style="font-weight: 600;">30°C</span>
             <span style="color: #000000; position: fixed; font-size: 200px; z-index: 1; opacity: 0.8; margin-left: 130px; margin-top: -30px;">!</span>
             <canvas id="canvas4" style="position: fixed; margin-top: -72px;"></canvas></div>
         </div>
@@ -63,7 +56,15 @@
         <div><canvas id="canvas10" style="display: none;"></canvas></div>
         <div><canvas id="canvas11" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
         <div><canvas id="canvas12" style="display: none;"></canvas></div>
-    </div>
+        <div><canvas id="canvas13" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas14" style="display: none;"></canvas></div>
+        <div><canvas id="canvas15" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas16" style="display: none;"></canvas></div>
+        <div><canvas id="canvas17" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas18" style="display: none;"></canvas></div>
+        <div><canvas id="canvas19" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: none;"></canvas></div>
+        <div><canvas id="canvas20" style="display: none;"></canvas></div>
+      </div>
     <div class="beader">
         <div class="infoBeader">
             <ul class="listaBeader">
@@ -83,10 +84,31 @@
             h2 = 0
             h3 = 0
             h4 = 0
+            function hideTemperatura() {
+                        canvas5.style.display = 'none'
+                        canvas6.style.display = 'none'
+                        canvas7.style.display = 'none'
+                        canvas8.style.display = 'none'
+                        canvas9.style.display = 'none'
+                        canvas10.style.display = 'none'
+                        canvas11.style.display = 'none'
+                        canvas12.style.display = 'none'
+            }
+            function hideUmidade() {
+                      canvas13.style.display = 'none'
+                      canvas14.style.display = 'none'
+                      canvas15.style.display = 'none'
+                      canvas16.style.display = 'none'
+                      canvas17.style.display = 'none'
+                      canvas18.style.display = 'none'
+                      canvas19.style.display = 'none'
+                      canvas20.style.display = 'none'
+            }
             function mudarBotao1() {
                 botao1.style.backgroundColor = 'rgb(255, 80, 80)'
                 botao2.style.backgroundColor = 'rgb(255, 112, 112)'
                     if (h1 == 1) {
+                      hideUmidade()
                         canvas5.style.display = 'block'
                         canvas6.style.display = 'block'
                         canvas7.style.display = 'none'
@@ -96,6 +118,7 @@
                         canvas11.style.display = 'none'
                         canvas12.style.display = 'none'
                     } else if (h2 == 1) {
+                      hideUmidade()
                         canvas5.style.display = 'none'
                         canvas6.style.display = 'none'
                         canvas7.style.display = 'block'
@@ -105,6 +128,7 @@
                         canvas11.style.display = 'none'
                         canvas12.style.display = 'none'
                     } else if (h3 == 1) {
+                      hideUmidade()
                         canvas5.style.display = 'none'
                         canvas6.style.display = 'none'
                         canvas7.style.display = 'none'
@@ -114,6 +138,7 @@
                         canvas11.style.display = 'none'
                         canvas12.style.display = 'none'
                     } else if (h4 == 1) {
+                      hideUmidade()
                         canvas5.style.display = 'none'
                         canvas6.style.display = 'none'
                         canvas7.style.display = 'none'
@@ -127,6 +152,47 @@
             function mudarBotao2() {
                 botao1.style.backgroundColor = 'rgb(255, 112, 112)'
                 botao2.style.backgroundColor = 'rgb(255, 80, 80)'
+                  if (h1 == 1) {
+                    hideTemperatura()
+                      canvas13.style.display = 'block'
+                      canvas14.style.display = 'block'
+                      canvas15.style.display = 'none'
+                      canvas16.style.display = 'none'
+                      canvas17.style.display = 'none'
+                      canvas18.style.display = 'none'
+                      canvas19.style.display = 'none'
+                      canvas20.style.display = 'none'
+                  } else if (h2 == 1) {
+                    hideTemperatura()
+                      canvas13.style.display = 'none'
+                      canvas14.style.display = 'none'
+                      canvas15.style.display = 'block'
+                      canvas16.style.display = 'block'
+                      canvas17.style.display = 'none'
+                      canvas18.style.display = 'none'
+                      canvas19.style.display = 'none'
+                      canvas20.style.display = 'none'
+                  } else if (h3 == 1) {
+                    hideTemperatura()
+                      canvas13.style.display = 'none'
+                      canvas14.style.display = 'none'
+                      canvas15.style.display = 'none'
+                      canvas16.style.display = 'none'
+                      canvas17.style.display = 'block'
+                      canvas18.style.display = 'block'
+                      canvas19.style.display = 'none'
+                      canvas20.style.display = 'none'
+                  } else if (h4 == 1) {
+                    hideTemperatura()
+                      canvas13.style.display = 'none'
+                      canvas14.style.display = 'none'
+                      canvas15.style.display = 'none'
+                      canvas16.style.display = 'none'
+                      canvas17.style.display = 'none'
+                      canvas18.style.display = 'none'
+                      canvas19.style.display = 'block'
+                      canvas20.style.display = 'block'
+                  }
             }
             function esconder() {
                 canvas5.style.display = 'none'
@@ -147,6 +213,7 @@
                 sensorContainer2.style.borderColor = '#ffc3c3'
                 sensorContainer3.style.borderColor = '#ffc3c3'
                 sensorContainer4.style.borderColor = '#ffc3c3'
+                hideUmidade()
                 canvas5.style.display = 'block'
                 canvas6.style.display = 'block'
                 canvas7.style.display = 'none'
@@ -155,6 +222,8 @@
                 canvas10.style.display = 'none'
                 canvas11.style.display = 'none'
                 canvas12.style.display = 'none'
+                botao1.style.backgroundColor = 'rgb(255, 80, 80)'
+                botao2.style.backgroundColor = 'rgb(255, 112, 112)'
             }
             function hide2() {
                 h1 = 0
@@ -165,6 +234,7 @@
                 sensorContainer2.style.borderColor = '#ff3232'
                 sensorContainer3.style.borderColor = '#ffc3c3'
                 sensorContainer4.style.borderColor = '#ffc3c3'
+                hideUmidade()
                 canvas5.style.display = 'none'
                 canvas6.style.display = 'none'
                 canvas7.style.display = 'block'
@@ -173,6 +243,8 @@
                 canvas10.style.display = 'none'
                 canvas11.style.display = 'none'
                 canvas12.style.display = 'none'
+                botao1.style.backgroundColor = 'rgb(255, 80, 80)'
+                botao2.style.backgroundColor = 'rgb(255, 112, 112)'
             }
             function hide3() {
                 h1 = 0
@@ -183,6 +255,7 @@
                 sensorContainer2.style.borderColor = '#ffc3c3'
                 sensorContainer3.style.borderColor = '#ff3232'
                 sensorContainer4.style.borderColor = '#ffc3c3'
+                hideUmidade()
                 canvas5.style.display = 'none'
                 canvas6.style.display = 'none'
                 canvas7.style.display = 'none'
@@ -191,6 +264,8 @@
                 canvas10.style.display = 'block'
                 canvas11.style.display = 'none'
                 canvas12.style.display = 'none'
+                botao1.style.backgroundColor = 'rgb(255, 80, 80)'
+                botao2.style.backgroundColor = 'rgb(255, 112, 112)'
             }
             function hide4() {
                 h1 = 0
@@ -201,6 +276,7 @@
                 sensorContainer2.style.borderColor = '#ffc3c3'
                 sensorContainer3.style.borderColor = '#ffc3c3'
                 sensorContainer4.style.borderColor = '#ff3232'
+                hideUmidade()
                 canvas5.style.display = 'none'
                 canvas6.style.display = 'none'
                 canvas7.style.display = 'none'
@@ -209,6 +285,8 @@
                 canvas10.style.display = 'none'
                 canvas11.style.display = 'block'
                 canvas12.style.display = 'block'
+                botao1.style.backgroundColor = 'rgb(255, 80, 80)'
+                botao2.style.backgroundColor = 'rgb(255, 112, 112)'
             }
         </script>
         <script>
@@ -249,7 +327,7 @@
         data: {
             datasets: [{
                 label: '# of Votes',
-                data: [3, 10],
+                data: [7, 10],
                 backgroundColor: [
                    'rgb(72, 255, 0)',
                    'white'
@@ -594,5 +672,259 @@
               config8
             );
           </script>
-
+          <script>
+            const labels9 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
           
+            const data9 = {
+              labels: labels9,
+              datasets: [{
+                label: 'Umidade Maxima',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [79, 75, 67, 69, 74, 70, 100],
+              }]
+            };
+          
+            const config9 = {
+              type: 'bar',
+              data: data9,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart9 = new Chart(
+              document.getElementById('canvas13'),
+              config9
+            );
+          </script>
+          <script>
+            const labels10 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data10 = {
+              labels: labels10,
+              datasets: [{
+                label: 'Umidade Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [50, 55, 59, 42, 57, 58, 80],
+              }]
+            };
+          
+            const config10 = {
+              type: 'bar',
+              data: data10,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart10 = new Chart(
+              document.getElementById('canvas14'),
+              config10
+            );
+          </script>
+          <script>
+            const labels11 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data11 = {
+              labels: labels11,
+              datasets: [{
+                label: 'Umidade Maxima',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [72, 66, 73, 77, 61, 78, 100],
+              }]
+            };
+          
+            const config11 = {
+              type: 'bar',
+              data: data11,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart11 = new Chart(
+              document.getElementById('canvas15'),
+              config11
+            );
+          </script>
+          <script>
+            const labels12 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data12 = {
+              labels: labels12,
+              datasets: [{
+                label: 'Umidade Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [48, 58, 56, 54, 41, 47, 80],
+              }]
+            };
+          
+            const config12 = {
+              type: 'bar',
+              data: data12,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart12 = new Chart(
+              document.getElementById('canvas16'),
+              config12
+            );
+          </script>
+          <script>
+            const labels13 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data13 = {
+              labels: labels13,
+              datasets: [{
+                label: 'Umidade Maxima',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [73, 63, 65, 69, 75, 78, 100],
+              }]
+            };
+          
+            const config13 = {
+              type: 'bar',
+              data: data13,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart13 = new Chart(
+              document.getElementById('canvas17'),
+              config13
+            );
+          </script>
+          <script>
+            const labels14 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data14 = {
+              labels: labels14,
+              datasets: [{
+                label: 'Umidade Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [43, 58, 57, 41, 53, 50, 80],
+              }]
+            };
+          
+            const config14 = {
+              type: 'bar',
+              data: data14,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart14 = new Chart(
+              document.getElementById('canvas18'),
+              config14
+            );
+          </script>
+          <script>
+            const labels15 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data15 = {
+              labels: labels15,
+              datasets: [{
+                label: 'Umidade Maxima',
+                backgroundColor: 'rgb(255,99,132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [72, 71, 60, 70, 77, 61, 100],
+              }]
+            };
+          
+            const config15 = {
+              type: 'bar',
+              data: data15,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart15 = new Chart(
+              document.getElementById('canvas19'),
+              config15
+            );
+          </script>
+          <script>
+            const labels16 = [
+              '08/04',
+              '09/04',
+              '10/04',
+              '11/04',
+              '12/04',
+              '13/04',
+            ];
+          
+            const data16 = {
+              labels: labels16,
+              datasets: [{
+                label: 'Umidade Minima',
+                backgroundColor: 'rgba(0,174,255,1)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [51, 46, 49, 40, 44, 59, 80],
+              }]
+            };
+          
+            const config16 = {
+              type: 'bar',
+              data: data16,
+              options: {}
+            };
+          </script>
+          <script>
+            const myChart16 = new Chart(
+              document.getElementById('canvas20'),
+              config16
+            );
+          </script>
