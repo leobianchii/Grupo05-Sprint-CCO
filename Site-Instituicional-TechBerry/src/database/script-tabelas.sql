@@ -110,9 +110,6 @@ create table Alerta(
 select * from usuario;
 
 
-
-
-
 /* para sql server - remoto - produção */
 
 CREATE TABLE usuario (
