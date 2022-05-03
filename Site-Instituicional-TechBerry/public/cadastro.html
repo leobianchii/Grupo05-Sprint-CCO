@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
+  <!-- aqui está sendo efetuada o link dos scripts e css -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/cadastro.css">
   <link rel="stylesheet" href="css/styleMin1.css">
@@ -29,7 +30,7 @@
       </ul>
     </div>
   </div>
-  <div class="cadastroContainer">
+  <div class="cadastroContainer"> <!-- Tela de cadastro do cliente -->
     <span class="nomeInput">Nome Do Proprietario</span>
     <input id="nome_input" class="cadastroInput" type="text" oninput="nameP()">
     <span class="emailInput">Email</span>
@@ -49,7 +50,7 @@
     <button class="botaoCadastro" onclick="location.href='principal.html'">Voltar</button>
     <button class="botaoCadastro1" onclick="cadastrar()">Confirmar Cadastro</button>
   </div>
-  <div class="beader">
+  <div class="beader"> <!-- footer do site -->
     <div class="infoBeader">
       <ul class="listaBeader">
         <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
@@ -66,8 +67,9 @@
 </body>
 
 </html>
-<script src="javascript/mouseOver.js"></script>
+<script src="javascript/mouseOver.js"></script> <!-- script para verificação do footer -->
 <script>
+  // se tiver algo digitado, a cor volta ao normal
   function nameP() {
     nome_input.style.backgroundColor = ''
   }
@@ -84,11 +86,13 @@
     empresa_input.style.backgroundColor = ''
   }
   function cadastrar() {
+    // aqui estamos pegando as variaveis digitadas pelo cliente 
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var cnpjVar = cnpj_input.value;
     var empresaVar = empresa_input.value;
+    // aqui estamos fazendo a validação dos campos
     if (nomeVar == '') {
       nome_input.style.backgroundColor = '#ffc3c3'
     }
@@ -113,6 +117,9 @@
     if (cnpjVar.length <= 14 || cnpjVar == '') {
       cnpj_input.style.backgroundColor = '#ffc3c3'
     }
+    // fim da validação de campos.
+
+    // aqui estamos enviando as credenciais para o banco de dados, para efetuar o cadastro do cliente.
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
@@ -128,10 +135,11 @@
     }).then(function (resposta) {
 
       console.log("resposta: ", resposta);
-
+      // se o registro foi efetuado com sucesso, será enviado para a página de login
       if (resposta.ok) {
         window.location = "login.html";
       } else {
+        // se não for, vai exibir uma mensagem de erro.
         throw ("Houve um erro ao tentar realizar o cadastro!");
       }
     }).catch(function (resposta) {

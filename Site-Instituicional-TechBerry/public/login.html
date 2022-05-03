@@ -21,7 +21,7 @@
             alt=""
             onclick="location.href='index.html'"
           />
-          <ul class="lista">
+          <ul class="lista"> <!-- Parte que direciona para as outras paginas do site -->
             <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login</li>
             <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()" onclick="location.href='cadastro.html'">Cadastro</li>
             <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()" onclick="location.href='login.html'">DashBoard</li>
@@ -29,7 +29,7 @@
           </ul>
         </div>
       </div>
-      <div class="loginContainer">
+      <div class="loginContainer"> <!-- Container de login -->
           <span class="loginNomes">Email</span>
             <input type="text" id="email_input" class="emailEstilo"> <br> <br>
           <span class="loginNomes">Senha</span>
@@ -40,7 +40,7 @@
             <span class="senhaEsqueceu" onclick="location.href='htmlcontato.html'">Esqueceu a Senha</span> <br>
             <span  class="naoTem" onclick="location.href='cadastro.html'">Não tem conta? Cadastre-se</span>
       </div>
-      <div class="beader">
+      <div class="beader"> <!-- Footer do site -->
         <div class="infoBeader">
             <ul class="listaBeader">
               <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
@@ -55,17 +55,21 @@
         </div>
 </body>
 </html>
-<script src="javascript/mouseOver.js"></script>
+<script src="javascript/mouseOver.js"></script> <!-- script pra quando clicar em algo do footer mudar a cor dele -->
 <script>
 
 
   function entrar() {
-
+        // aqui estamos pegando o valor da variavel
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
+
+      // aqui estamos verificando se o que está escrito é valido para ser enviado a dashboard
       if (emailVar == 'admin' && senhaVar == 'admin') {
           location.href='html/dashboard.html'
       }
+
+      // aqui estamos fazendo a validação dos campos.
       if (emailVar == "") {
           email_input.style.backgroundColor = '#ffc3c3'
       }
@@ -79,6 +83,8 @@
       console.log("FORM LOGIN: ", emailVar);
       console.log("FORM SENHA: ", senhaVar);
 
+
+      // aqui estamos verificando se a variavel digitada é igual a alguma cadastrada no banco.
       fetch("/usuarios/autenticar", {
           method: "POST",
           headers: {
@@ -88,9 +94,10 @@
               emailServer: emailVar,
               senhaServer: senhaVar
           })
-      }).then(function (resposta) {
+      }).then(function (resposta) { 
           console.log("ESTOU NO THEN DO entrar()!")
-
+        
+        // se tudo estiver ok, e tiver compativeis com o banco o usuário será levado a dashboard.
           if (resposta.ok) {
               console.log(resposta);
               location.href = 'html/dashboard.html'
@@ -104,6 +111,7 @@
 
               });
 
+        // caso não esteja tudo ok, ele será barrado de se logar e dará um erro.
           } else {
 
               console.log("Houve um erro ao tentar realizar o login!");

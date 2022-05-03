@@ -1,68 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TechBerry</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/styleMin.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="header">
-      <div class="headerA"></div>
-      <div class="headerB">
-        <img
-          class="logo"
-          src="imagens\morango.png"
-          alt=""
-          onclick="location.href='index.html'"
-        />
-        <ul class="lista">
-          <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login</li>
-          <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()" onclick="location.href='cadastro.html'">Cadastro</li>
-          <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()" onclick="location.href='login.html'">DashBoard</li>
-          <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()" onclick="location.href='html/contato.html'">Contato</li>
-        </ul>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechBerry</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styleMin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="header">
+    <div class="headerA"></div>
+    <div class="headerB">
+      <img class="logo" src="imagens\morango.png" alt="" onclick="location.href='index.html'" />
+      <ul class="lista">
+        <li id="login" onmouseover="loginClick()" onmouseout="loginClick1()" onclick="location.href='login.html'">Login
+        </li>
+        <li id="cadastro" onmouseover="cadastroClick()" onmouseout="cadastroClick1()"
+          onclick="location.href='cadastro.html'">Cadastro</li>
+        <li id="sobreNos" onmouseover="sobreNosClick()" onmouseout="sobreNosClick1()"
+          onclick="location.href='login.html'">DashBoard</li>
+        <li id="contato" onmouseover="contatoClick()" onmouseout="contatoClick1()"
+          onclick="location.href='html/contato.html'">Contato</li>
+      </ul>
+    </div>
+  </div>
+  <div class="nomeEmpresa">
+    TechBerry
+    <div class="info">
+      Somos a <span class="nomeEmpresaTexto">TechBerry</span>, uma empresa que <br>
+      realiza projetos de estufa para aumentar a <br>
+      produtividade e a receita do seu cúltivo. <br>
+      Para mais informações clique no botão abaixo
+    </div>
+    <button class="botaoS" onclick="location.href='html/emConstrução.html'">Saiba Mais</button>
+  </div>
+  <img class="imagem" src="imagens\0aff5637ad89d93e7d6b03b9911ff880.png" alt="">
+
+
+  <div class="calculadoraContainer" style="display: flex; flex-direction: column;">
+    <h3 style="padding-top: 20px; color: #ffffff;">Calculadora financeira</h3>
+
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: #ffffff;">
+      <div style="width: 45vw; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <b style="font-size: 18px;">Insira o tamanho da estufa em (m2):</b>
+        <input id="metragem" type="text" placeholder="Tamanho"
+          style="width: 50%;height: 35px; background: #f0f0f0; margin: 10px 0;border: 2px solid #DE3B4D; border-radius: 50px; padding-left: 15px;">
+        <b style="font-size: 15px;">Insira o valor que será vendido cada 1KG de morango:</b>
+        <input id="valor" type="text" placeholder="Tamanho"
+          style="width: 50%;height: 35px; background: #f0f0f0; margin: 10px 0;border: 2px solid #DE3B4D; border-radius: 50px; padding-left: 15px;">
+
+        <button onclick="calcular()"
+          style="margin-top: 30px;width: 150px;height: 35px;border: none;border-radius: 50px;background: #de3b4d;color: #fff;font-weight: 600;font-size: 17px;cursor: pointer;">Calcular
+          lucro</button>
+      </div>
+
+      <div style="width: 45vw; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 25px; color: #ffffff;">
+        <b>Preço médio da muda de morango: R$5,90. <br>
+          Taxa da empresa: R$1000.</b>
+        <span id="div_msg"></span>
       </div>
     </div>
-    <div class="nomeEmpresa">
-      TechBerry
-      <div class="info">
-        Somos a <span class="nomeEmpresaTexto">TechBerry</span>, uma empresa que <br>
-        realiza projetos de estufa para aumentar a <br>
-        produtividade e a receita do seu cúltivo. <br>
-        Para mais informações clique no botão abaixo
-      </div>
-      <button class="botaoS" onclick="location.href='html/emConstrução.html'">Saiba Mais</button>
+  </div>
+
+
+  <div class="registreJa">
+    Junte-se agora mesmo á nos <br>
+    <button class="botaoRegistra" onclick="location.href='cadastro.html'">Cadastrar-se</button>
+  </div>
+  <div class="beader">
+    <div class="infoBeader">
+      <ul class="listaBeader">
+        <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
+        <li onclick="location.href='html/emConstrução.html'">Fale Conosco</li>
+        <li onclick="location.href='html/emConstrução.html'">Direitos</li>
+        <li onclick="location.href='html/emConstrução.html'">Termos de Uso</li>
+        <li onclick="location.href='html/emConstrução.html'">Politica de Privacidade</li>
+        <li onclick="location.href='html/emConstrução.html'">Politica de Hiperlinks</li>
+        <li onclick="location.href='html/emConstrução.html'">English Version</li>
+      </ul>
+      © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
     </div>
-    <img class="imagem" src="imagens\0aff5637ad89d93e7d6b03b9911ff880.png" alt="">
-    <div class="calculadoraContainer">
-      <br>
-      CALCULADORA AQUI
-    </div>
-    <div class="registreJa">
-      Junte-se agora mesmo á nos <br>
-      <button class="botaoRegistra" onclick="location.href='cadastro.html'">Cadastrar-se</button>
-    </div>
-    <div class="beader">
-        <div class="infoBeader">
-            <ul class="listaBeader">
-                <li onclick="location.href='html/emConstrução.html'">Quem Somos</li>
-                <li onclick="location.href='html/emConstrução.html'">Fale Conosco</li>
-                <li onclick="location.href='html/emConstrução.html'">Direitos</li>
-                <li onclick="location.href='html/emConstrução.html'">Termos de Uso</li>
-                <li onclick="location.href='html/emConstrução.html'">Politica de Privacidade</li>
-                <li onclick="location.href='html/emConstrução.html'">Politica de Hiperlinks</li>
-                <li onclick="location.href='html/emConstrução.html'">English Version</li>
-            </ul>
-            © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
-        </div>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
 <script src="../javascript/mouseOver.js"></script>
+
+<script>
+  function calcular() {
+    div_msg.innerHTML =
+      `<br> O lucro da plantação será de R$${((((10 * metragem.value) * 0.5) * valor.value) - (((10 * metragem.value) * 0.5) * valor.value) * 0.2) } <br> Custo da estufa ${Number((10 * metragem.value) * 5.90) + Number(1000)} `;
+
+  }
+</script>
