@@ -42,7 +42,7 @@
 
 
   <div class="calculadoraContainer" style="display: flex; flex-direction: column;">
-    <h3 style="padding-top: 20px; color: #ffffff;">Calculadora financeira</h3>
+    <h3 style="margin-left: -45% ;padding-top: 20px; color: #ffffff;">Calculadora financeira</h3>
 
     <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; color: #ffffff;">
       <div style="width: 45vw; display: flex; flex-direction: column; justify-content: center; align-items: center;">
@@ -59,9 +59,13 @@
       </div>
 
       <div style="width: 45vw; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 25px; color: #ffffff;">
-        <b>Preço médio da muda de morango: R$5,90. <br>
-          Taxa da empresa: R$1000.</b>
-        <span id="div_msg"></span>
+        <div class="precos">
+          <div class="precosP"><span class="tipoEstufa">Tipo de Estufa</span><span class="default">Padrão</span><span class="default">TechBerry</span></div>
+          <div class="precosB"><span class="dadoTempo">Dados em <br> tempo real</span><img class="imagemX" style="height: 30px;" src="imagens\x.png"><img class="imagemX check" src="imagens/check.png"></div>
+          <div class="precosP"><span class="perda">Custo de Perda</span><span id="perdaResult" class="result" style="color: rgb(255, 0, 0)"></span><span id="perdaResult1" class="result" style="color: rgb(132, 228, 132);"></span></div>
+          <div class="precosB"><span class="maoDeObra">Mão de obra</span><span id="maoDeObraP" class="result1" style="color: rgb(132, 228, 132);"></span><span id="maoDeObraT" class="result1" style="color: rgb(255, 230, 0);"></span></div>
+          <div class="precosP"><span class="maoDeObra">Receita Total</span><span id="receitaTotalP" class="result2" style="color: red;"></span><span id="receitaTotalT" class="result2" style="color: rgb(132, 228, 132);"></span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -92,8 +96,20 @@
 
 <script>
   function calcular() {
-    div_msg.innerHTML =
-      `<br> O lucro da plantação será de R$${((((10 * metragem.value) * 0.5) * valor.value) - (((10 * metragem.value) * 0.5) * valor.value) * 0.2) } <br> Custo da estufa ${Number((10 * metragem.value) * 5.90) + Number(1000)} `;
+    axMetros = metragem.value
+    axValor = valor.value
+    axQtdMorango = axMetros * 4
+    axVendas = axQtdMorango * axValor
+    axPerda1 = axVendas * 0.3
+    axPerda2 = axVendas * 0.027
+    axMao1 = axMetros * 90.5123
+    axMao2 = axMetros * 93.3231
+      perdaResult.innerHTML = `30%(-R$${axPerda1})`
+      perdaResult1.innerHTML = `2.7%(-R$${axPerda2})`
+      maoDeObraP.innerHTML = `R$${axMao1.toFixed(0)}`
+      maoDeObraT.innerHTML = `R$${axMao2.toFixed(0)}`
+      receitaTotalP.innerHTML = `R$${axVendas - axPerda1}`
+      receitaTotalT.innerHTML = `R$${axVendas - axPerda2}`
 
   }
 </script>
