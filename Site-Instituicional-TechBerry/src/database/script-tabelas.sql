@@ -11,7 +11,14 @@ CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
-	senha VARCHAR(50)
+	senha VARCHAR(50),
+	empresa VARCHAR(50),
+	bairro VARCHAR(50),
+	logradouro VARCHAR(50),
+	cep char(8),
+	numero VARCHAR(5),
+	uf char(2),
+	telefone char(11)
 );
 
 CREATE TABLE aviso (

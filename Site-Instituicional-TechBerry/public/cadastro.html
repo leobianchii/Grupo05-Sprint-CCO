@@ -29,24 +29,40 @@
         </div>
       </div>
       <div class="cadastroContainer">
-        <span class="nomeInput">Nome Do Proprietario</span>
+        <span id="nomeText" class="nomeInput">Nome Do Proprietario</span>
         <input id="nome_input" class="cadastroInput" type="text" >
-        <span class="emailInput">Email</span>
+        <span id="emailText" class="emailInput">Email</span>
         <input id="email_input" class="cadastroInput" type="text" >
-        <span class="senhaInput">Senha</span>
+        <span id="senhaText" class="senhaInput">Senha</span>
         <input id="senha_input" class="cadastroInput" type="password" >
-        <span class="cnpjInput">CNPJ</span>
+        <span id="cnpjText"class="cnpjInput">CNPJ</span>
         <input id="cnpj_input" class="cadastroInput" type="text" >
-        <span class="empresaInput">Nome Da Empresa</span>
+        <span id="empresaText" class="empresaInput">Nome Da Empresa</span>
         <input id="empresa_input" class="cadastroInput" type="text" >
-        <select class="selectCustom" name="" id="">
+        <select class="selectCustom" name="" id="selectId">
           <option value="">São Paulo</option>
           <option value="">Minas Gerais</option>
           <option value="">Mato Grosso Do Sul</option>
           <option value="">Piauí</option>
-        </select> 
-        <button class="botaoCadastro" onclick="location.href='principal.html'">Voltar</button>
-        <button class="botaoCadastro1" onclick="cadastrar()">Confirmar Cadastro</button>
+        </select>
+          <div id="cadastroParte2" class="cadastroParte2" style="display: none;">
+          <span class="nomeInput">Bairro</span>
+          <input id="bairro_input" type="text" class="cadastroInput">
+          <span class="emailInput">Logradouro</span>
+          <input type="text" class="cadastroInput" id="logradouro_input">
+          <span class="senhaInput">CEP</span>
+          <input type="text" class="cadastroInput" id="cep_input">
+          <span class="cnpjInput">Numero Residencial</span>
+          <input type="text" class="cadastroInput" id="numero_input">
+          <span class="empresaInput">UF</span>
+          <input type="text" class="cadastroInput" id="uf_input">
+          <span class="telefone">Telefone</span>
+          <input type="text" class="cadastroInput" id="telefone_input">
+        </div> 
+        <button id="botaoCadastro" class="botaoCadastro" onclick="location.href='principal.html'">Voltar</button>
+        <button id="botaoCadastro1" class="botaoCadastro1" onclick="aheadCadastro()">Continuar</button>
+        <button id="botaoCadastro2" class="botaoCadastro2" onclick="cadastrar()" style='display: none;'>Confirmar Cadastro</button>
+        <span id="camposNesc" class="cadastroErrado">Preencha os campos</span>
       </div>
       <div class="beader">
         <div class="infoBeader">
@@ -65,6 +81,44 @@
 </html>
 <script src="javascript/mouseOver.js"></script>
 <script>
+  function aheadCadastro() {
+      var nomeVar = nome_input.value;
+      var emailVar = email_input.value;
+      var senhaVar = senha_input.value;
+      var cnpjVar = cnpj_input.value;
+      var empresaVar = empresa_input.value;
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" || cnpjVar == "" || empresaVar == "") {
+        camposNesc.style.display = 'block'
+          limpar()
+          return false;
+      }
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+          email_input.value = ''
+          email_input.placeholder = 'Email invalido'
+          email_input.style.backgroundColor = '#ffc3c3'
+          return false;
+      } else  {
+    nome_input.style.display = 'none'
+    nomeText.style.display = 'none'
+    email_input.style.display = 'none'
+    emailText.style.display = 'none'
+    senhaText.style.display = 'none'
+    senha_input.style.display = 'none'
+    cnpjText.style.display = 'none'
+    cnpj_input.style.display = 'none'
+    empresaText.style.display = 'none'
+    empresa_input.style.display = 'none'
+    selectId.style.display = 'none'
+    cadastroParte2.style.display = 'block'
+    botaoCadastro.style.marginTop = '2.6%'
+    botaoCadastro1.style.marginTop = '2.6%'
+    botaoCadastro.style.marginLeft = '5.4%'
+    botaoCadastro1.style.marginLeft = '24.4%'
+    botaoCadastro1.style.display = 'none'
+    botaoCadastro2.style.display = 'block'
+    camposNesc.style.display = 'none'
+   }
+  }
   function limpar() {
     nome_input.style.backgroundColor = '#ffc3c3'
     email_input.style.backgroundColor = '#ffc3c3'
@@ -73,26 +127,20 @@
     empresa_input.style.backgroundColor = '#ffc3c3'
   }
   function cadastrar() {
-
-      //Recupere o valor da nova input pelo nome do id
-      // Agora vá para o método fetch logo abaixo
       var nomeVar = nome_input.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
       var cnpjVar = cnpj_input.value;
       var empresaVar = empresa_input.value;
+      var bairroVar = bairro_input.value
+      var logradouroVar = logradouro_input.value
+      var cepVar = cep_input.value
+      var numeroVar = numero_input.value
+      var ufVar = uf_input.value
+      var telefoneVar = telefone_input.value
+      //Recupere o valor da nova input pelo nome do id
+      // Agora vá para o método fetch logo abaixo
 
-      if (nomeVar == "" || emailVar == "" || senhaVar == "" || cnpjVar == "" || empresaVar == "") {
-          limpar()
-          return false;
-      }
-
-      if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-          email_input.value = ''
-          email_input.placeholder = 'Email invalido'
-          email_input.style.backgroundColor = '#ffc3c3'
-          return false;
-      }
       // Enviando o valor da nova input
       fetch("/usuarios/cadastrar", {
           method: "POST",
@@ -106,7 +154,13 @@
               emailServer: emailVar,
               senhaServer: senhaVar,
               cnpjServer: cnpjVar,
-              empresaServer: empresaVar
+              empresaServer: empresaVar,
+              bairroServer: bairroVar,
+              logradouroServer: logradouroVar,
+              cepServer: cepVar,
+              numeroServer: numeroVar,
+              ufServer: ufVar,
+              telefoneServer: telefoneVar
           })
       }).then(function (resposta) {
 

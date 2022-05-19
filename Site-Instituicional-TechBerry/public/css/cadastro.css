@@ -40,6 +40,12 @@
         margin-top: 0.7%;
         font-size: 75%;
 }
+.telefone {
+        position: fixed;
+        margin-left: 1%;
+        margin-top: 1%;
+        font-size: 75%;
+}
 .empresaInput {
         position: fixed;
         margin-left: -42.2%;
@@ -85,4 +91,25 @@
         font-size: 70%;
         color: #ff8a8a;
         cursor: pointer;
+}
+.botaoCadastro2 {
+        position: fixed;
+        margin-left: 24.4%;
+        margin-top: 2.6%;
+        width: 15%;
+        height: 7%;
+        border-radius: 2em;
+        background-color: transparent;
+        border-color: #ff8a8a;
+        font-size: 70%;
+        color: #ff8a8a;
+        cursor: pointer;
+}
+.cadastroErrado {
+        position: relative;
+        display: flex;
+        font-size: 15px;
+        margin-left: 218px;
+        margin-top: 100px;
+        display: none;
 }
