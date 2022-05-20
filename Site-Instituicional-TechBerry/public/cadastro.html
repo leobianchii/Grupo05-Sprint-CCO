@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cadastro.css">
-    <link rel="stylesheet" href="css/styleMin1.css">
-    <script src="./js/funcoes.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <!-- aqui está sendo efetuada o link dos scripts e css -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="stylesheet" href="css/styleMin1.css">
+  <script src="./js/funcoes.js"></script>
 </head>
+
 <body>
     <div class="header">
         <div class="headerA"></div>
@@ -77,9 +80,11 @@
             </ul>
             © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
         </div>
+
 </body>
+
 </html>
-<script src="javascript/mouseOver.js"></script>
+<script src="javascript/mouseOver.js"></script> <!-- script para verificação do footer -->
 <script>
   function aheadCadastro() {
       var nomeVar = nome_input.value;
@@ -176,6 +181,21 @@
       });
 
       return false;
+  // se tiver algo digitado, a cor volta ao normal
+  function nameP() {
+    nome_input.style.backgroundColor = ''
   }
-
-</script>
+  function emailP() {
+    email_input.style.backgroundColor = ''
+  }
+  function cnpjP() {
+    cnpj_input.style.backgroundColor = ''
+  }
+  function senhaP() {
+    senha_input.style.backgroundColor = ''
+  }
+  function empresaP() {
+    empresa_input.style.backgroundColor = ''
+  }
+ }
+  </script>

@@ -1,32 +1,12 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/* para workbench - local - desenvolvimento */
 create database TechBerry;
 use TechBerry;
 
 
-<<<<<<< HEAD
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	empresa VARCHAR(50),
-	bairro VARCHAR(50),
-	logradouro VARCHAR(50),
-	cep char(8),
-	numero VARCHAR(5),
-	uf char(2),
-	telefone char(11)
-=======
 create table Cliente(
 	idCliente int primary key auto_increment,
     nomeCliente varchar(45),
     nomeEmpresa varchar(45),
     cnpjCliente char(14)
->>>>>>> bc9de25b310a7ac341fdbb74d8316c331d00edd2
 );
 
 create table telefone(
@@ -38,11 +18,8 @@ create table telefone(
 
 create table Usuario(
 	idUsuario int primary key,
-    nome varchar (45),
     email varchar(45),
     senha varchar(20),
-    cnpj char(14),
-    empresa varchar(45),
     fkCliente int,
     foreign key (fkCliente) references Cliente(idCliente)
 );
@@ -123,31 +100,4 @@ create table Alerta(
     foreign key (fkMorango) references Morango(idMorango)
 );
 
-select * from usuario;
-
-
-/* para sql server - remoto - produção */
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
-
-
+drop database Techberry;

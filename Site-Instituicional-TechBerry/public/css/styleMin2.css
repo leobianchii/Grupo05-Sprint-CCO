@@ -32,10 +32,11 @@
     .beader {
         background-color: #ff5f5f;
         width: 100%;
-        margin-top: 479px;
-        height: 70px;
+        bottom: 0;
+        left: 0;
+        height: 10%;
         box-shadow: 3px 3px 10px;
-        position: relative;
+        position: fixed;
         justify-content: center;
     }
     .infoBeader {
@@ -45,7 +46,7 @@
         font-weight: 600;
         color: #ffffff;
         position: sticky;
-        margin-top: 10%;
+        margin-top: -6%;
     }
     .lista {
         list-style-type: none;
