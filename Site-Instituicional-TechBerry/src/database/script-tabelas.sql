@@ -7,7 +7,6 @@ create database TechBerry;
 use TechBerry;
 
 
-<<<<<<< HEAD
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
@@ -20,13 +19,6 @@ CREATE TABLE usuario (
 	numero VARCHAR(5),
 	uf char(2),
 	telefone char(11)
-=======
-create table Cliente(
-	idCliente int primary key auto_increment,
-    nomeCliente varchar(45),
-    nomeEmpresa varchar(45),
-    cnpjCliente char(14)
->>>>>>> bc9de25b310a7ac341fdbb74d8316c331d00edd2
 );
 
 create table telefone(
@@ -91,6 +83,7 @@ create table Historico(
     descHistorico varchar(45),
     temperaturaLida char(5),
     umidadeLida char(5),
+    momento DATETIME,
     fkSensor int,
     foreign key (fkSensor) references Sensor(idSensor)
 );
