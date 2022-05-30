@@ -2,7 +2,7 @@ var database = require("../database/config");
 
 function buscarUltimasMedidas(idAquario, limite_linhas) {
     instrucaoSql = `SELECT MAX(temperaturaLida) AS max_temp, MIN(temperaturaLida) AS min_temp, DATE_FORMAT(momento,'%e/%m') AS momento_grafico FROM Historico
-	WHERE fkSensor = ${idAquario}
+	WHERE fkEstufa = ${idAquario}
     GROUP BY  dayofmonth(momento)
     ORDER BY momento limit ${limite_linhas};`;
 
@@ -13,7 +13,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 
 function buscarUltimasMedidasHora(idAquario, limite_linhas) {
     instrucaoSql = `SELECT temperaturaLida as temperatura, momento, DATE_FORMAT(momento,'%H:%i:%s') AS momento_grafico FROM historico
-	WHERE fkSensor = ${idAquario}
+	WHERE fkEstufa = ${idAquario}
     ORDER BY idHistorico DESC limit ${limite_linhas};`;
 
     
@@ -23,8 +23,8 @@ function buscarUltimasMedidasHora(idAquario, limite_linhas) {
 
 function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `SELECT temperaturaLida as temperatura, momento, DATE_FORMAT(momento,'%H:%i:%s') AS momento_grafico FROM historico
-	WHERE fkSensor = ${idAquario}
-    ORDER BY idHistorico DESC limit 1;`;
+	WHERE fkEstufa = ${idAquario}
+    ORDER BY idHistorico DESC limit 4;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -32,7 +32,7 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 function buscarMedidasEmTempoDia(idAquario) {
     instrucaoSql = `SELECT MAX(temperaturaLida) AS max_temp, MIN(temperaturaLida) AS min_temp, DATE_FORMAT(momento,'%e/%m') AS momento_grafico FROM Historico
-	WHERE fkSensor = ${idAquario}
+	WHERE fkEstufa = ${idAquario}
     GROUP BY  dayofmonth(momento)
     ORDER BY momento limit 7;`;
 

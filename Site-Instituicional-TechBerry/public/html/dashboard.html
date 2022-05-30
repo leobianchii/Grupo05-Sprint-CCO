@@ -38,24 +38,28 @@
   <!-- Aqui está a div para a renderização dos gráficos da estufa -->
   <div class="sensorContainers">
     <div class="canvasA">
-      <div onclick="hide1()" id="sensorContainer1" class="sensorContainer1">
+      <div onclick="hide1()" class="sensorContainer1">
         <span style="position: fixed; color: rgb(255, 112, 112);">1°</span>
-        <span class="graus" style="font-weight: 600;">26°C</span>
-        <canvas id="canvas1" style="position: fixed; margin-top: -58px;"></canvas></div>
-      <div onclick="hide2()" id="sensorContainer2" class="sensorContainer2">
+        <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_1">26</span>°C <img id="img_temp"
+        src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg"
+        alt="" style="width: 35px; height: 35px;  margin: 0px -5px -10px;"></span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">26%</span>
+      </div>
+      <div onclick="hide2()" class="sensorContainer2">
         <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
-        <span class="graus" style="font-weight: 600;">17°C</span>
-        <canvas id="canvas2" style="position: fixed; margin-top: -58px;"></canvas></div>
-      <div onclick="hide3()" id="sensorContainer3" class="sensorContainer3">
+        <span class="graus" id="span_temperatura" style="font-weight: 600;">17°C</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">17%</span>
+      </div>
+      <div onclick="hide3()" class="sensorContainer3">
         <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
-        <span class="graus" style="font-weight: 600;">18°C</span>
-        <canvas id="canvas3" style="position: fixed; margin-top: -58px;"></canvas></div>
-      <div onclick="hide4()" id="sensorContainer4" class="sensorContainer4">
+        <span class="graus" id="span_temperatura" style="font-weight: 600;">18°C</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">18%</span>
+      </div>
+      <div onclick="hide4()" class="sensorContainer4">
         <span style="position: fixed; color: rgb(255, 112, 112);">4°</span>
-        <span class="graus" style="font-weight: 600;">30°C</span>
-        <span
-          style="color: #000000; position: fixed; font-size: 200px; z-index: 1; opacity: 0.8; margin-left: 9.5%; margin-top: -30px;">!</span>
-        <canvas id="canvas4" style="position: fixed; margin-top: -58px;;"></canvas></div>
+        <span class="graus" id="span_temperatura" style="font-weight: 600;">30°C</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">30°C</span>
+      </div>
     </div>
   </div>
 
@@ -63,9 +67,16 @@
   <div onclick="mudarBotao1()" id="botao1" class="botao1">Temperatura</div>
   <div onclick="mudarBotao2()" id="botao2" class="botao2">Umidade</div>
   <div class="dadosContainer">
-    <div><canvas id="canvas5" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: block;"></canvas>
+    <div id="div_temp" style="display: block;">
+      <div><canvas id="canvas5" style="border-bottom: 2px solid #ffc3c3; display: block;"></canvas>
+      </div>
+      <div><canvas id="canvas6"></canvas></div>
     </div>
-    <div><canvas id="canvas6" style="display: block;"></canvas></div>
+    <div id="div_umida" style="display: none;">
+      <div><canvas id="canvas7" style="border-bottom: 2px solid #ffc3c3; margin-top: -8px; display: block;"></canvas>
+      </div>
+      <div><canvas id="canvas8"></canvas></div>
+    </div>
   </div>
 
   <!-- Aqui está o footer do site -->
@@ -83,305 +94,4 @@
       © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
     </div>
     <script src="../javascript/mouseOver.js"></script> <!-- verificação do footer -->
-    <script>
-
-      infoM = 0
-
-      function mostrarMetricas() {
-        infoM++
-        // aqui está a verificação de métricas, se o botão de info for clicado ela aparece se não ela desaparece.
-        if (infoM % 2 == 0) {
-          tempMetrica.style.display = 'none'
-          umiMetrica.style.display = 'none'
-        } else {
-          tempMetrica.style.display = 'block'
-          umiMetrica.style.display = 'block'
-        }
-      }
-      h1 = 1
-      h2 = 0
-      h3 = 0
-      h4 = 0
-
-      function hideTemperatura() {
-        // aqui estamos escondendo todas os graficos específicos de alguma estufa de temperatura
-        canvas5.style.display = 'none'
-        canvas6.style.display = 'none'
-      }
-
-      function mudarBotao1() {
-        // se o botão de temperatura for clicado muda a cor dele e a cor do de umidade.
-        botao1.style.backgroundColor = 'rgb(255, 80, 80)'
-        botao2.style.backgroundColor = 'rgb(255, 112, 112)'
-
-        if (h1 == 1) {
-          // se a primeira estufa for a selecionada faz aparecer os gráficos especificos de temperatura
-          hideUmidade()
-          canvas5.style.display = 'block'
-          canvas6.style.display = 'block'
-        } else if (h2 == 1) {
-          // basicamente a mesma coisa que o primeiro if só muda o fato que se for a segunda estufa selecionada
-          hideUmidade()
-          canvas5.style.display = 'none'
-          canvas6.style.display = 'none'
-        } else if (h3 == 1) {
-          // 3 estufa selecionada
-          hideUmidade()
-          canvas5.style.display = 'none'
-          canvas6.style.display = 'none'
-        } else if (h4 == 1) {
-          // 4 estufa selecionada
-          hideUmidade()
-          canvas5.style.display = 'none'
-          canvas6.style.display = 'none'
-        }
-      }
-
-      function mudarBotao2() {
-        // se o botão de umidade for clicado ele muda a cor do botão de temperatura e a dele para cores diferentes.
-        botao1.style.backgroundColor = 'rgb(255, 112, 112)'
-        botao2.style.backgroundColor = 'rgb(255, 80, 80)'
-        if (h1 == 1) {
-          hideTemperatura()
-          // aqui estamos escondendo os graficos de temperatura e mostrando os de umidade.
-        } else if (h2 == 1) {
-          hideTemperatura()
-        } else if (h3 == 1) {
-          hideTemperatura()
-        } else if (h4 == 1) {
-          hideTemperatura()
-        }
-      }
-
-      function esconder() {
-        // aqui estamos escondendo os gráficos de temperatura.
-        canvas5.style.display = 'none'
-        canvas6.style.display = 'none'
-      }
-
-      function hide1() {
-        // aqui estamos escondendo os gráficos e mudando a cor da borda do sensor selecionado.
-        h1 = 1
-        h2 = 0
-        h3 = 0
-        h4 = 0
-        sensorContainer1.style.borderColor = '#ff3232'
-        sensorContainer2.style.borderColor = '#ffc3c3'
-        sensorContainer3.style.borderColor = '#ffc3c3'
-        sensorContainer4.style.borderColor = '#ffc3c3'
-        hideUmidade()
-        canvas5.style.display = 'block'
-        canvas6.style.display = 'block'
-        botao1.style.backgroundColor = 'rgb(255, 80, 80)'
-        botao2.style.backgroundColor = 'rgb(255, 112, 112)'
-      }
-
-      function hide2() {
-        // aqui estamos escondendo os gráficos e mudando a cor da borda do sensor selecionado.
-        h1 = 0
-        h2 = 1
-        h3 = 0
-        h4 = 0
-        sensorContainer1.style.borderColor = '#ffc3c3'
-        sensorContainer2.style.borderColor = '#ff3232'
-        sensorContainer3.style.borderColor = '#ffc3c3'
-        sensorContainer4.style.borderColor = '#ffc3c3'
-        hideUmidade()
-        canvas5.style.display = 'none'
-        canvas6.style.display = 'none'
-        botao1.style.backgroundColor = 'rgb(255, 80, 80)'
-        botao2.style.backgroundColor = 'rgb(255, 112, 112)'
-      }
-
-      function hide3() {
-        // aqui estamos escondendo os gráficos e mudando a cor da borda do sensor selecionado.
-        h1 = 0
-        h2 = 0
-        h3 = 1
-        h4 = 0
-        sensorContainer1.style.borderColor = '#ffc3c3'
-        sensorContainer2.style.borderColor = '#ffc3c3'
-        sensorContainer3.style.borderColor = '#ff3232'
-        sensorContainer4.style.borderColor = '#ffc3c3'
-        hideUmidade()
-        canvas5.style.display = 'none'
-        canvas6.style.display = 'none'
-        botao1.style.backgroundColor = 'rgb(255, 80, 80)'
-        botao2.style.backgroundColor = 'rgb(255, 112, 112)'
-      }
-
-      function hide4() {
-        // aqui estamos escondendo os gráficos e mudando a cor da borda do sensor selecionado.
-        h1 = 0
-        h2 = 0
-        h3 = 0
-        h4 = 1
-        sensorContainer1.style.borderColor = '#ffc3c3'
-        sensorContainer2.style.borderColor = '#ffc3c3'
-        sensorContainer3.style.borderColor = '#ffc3c3'
-        sensorContainer4.style.borderColor = '#ff3232'
-        hideUmidade()
-        canvas5.style.display = 'none'
-        canvas6.style.display = 'none'
-        botao1.style.backgroundColor = 'rgb(255, 80, 80)'
-        botao2.style.backgroundColor = 'rgb(255, 112, 112)'
-      }
-    </script>
-    <script>
-      // esse script serve para a renderização dos gráficos na tela.
-      var ctx2 = document.getElementById("canvas1");
-      var dashboardChart2 = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-          datasets: [{
-            label: '# of Votes',
-            data: [28, 3],
-            backgroundColor: [
-              'rgb(255, 72, 0)',
-              'white'
-            ],
-            borderWidth: 0
-          }]
-
-        },
-        options: {
-          rotation: 86 * Math.PI,
-          /** This is where you need to work out where 89% is */
-          circumference: 57.2 * Math.PI,
-          /** put in a much smaller amount  so it does not take up an entire semi circle */
-          legend: {
-            display: false
-          },
-          tooltip: {
-            enabled: false
-          },
-          cutoutPercentage: 50,
-          tooltips: false,
-        }
-      }, );
-    </script>
-    <script>
-      var ctx2 = document.getElementById("canvas2");
-      var dashboardChart2 = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-          datasets: [{
-            label: '# of Votes',
-            data: [10, 10],
-            backgroundColor: [
-              'rgb(72, 255, 0)',
-              'white'
-            ],
-            borderWidth: 0
-          }]
-
-        },
-        options: {
-          rotation: 86 * Math.PI,
-          /** This is where you need to work out where 89% is */
-          circumference: 57.2 * Math.PI,
-          /** put in a much smaller amount  so it does not take up an entire semi circle */
-          legend: {
-            display: false
-          },
-          tooltip: {
-            enabled: false
-          },
-          cutoutPercentage: 50,
-          tooltips: false,
-        }
-      }, );
-    </script>
-    <script>
-      var ctx2 = document.getElementById("canvas3");
-      var dashboardChart2 = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-          datasets: [{
-            label: '# of Votes',
-            data: [14, 10],
-            backgroundColor: [
-              'rgb(251, 255, 0)',
-              'white'
-            ],
-            borderWidth: 0
-          }]
-
-        },
-        options: {
-          rotation: 86 * Math.PI,
-          /** This is where you need to work out where 89% is */
-          circumference: 57.2 * Math.PI,
-          /** put in a much smaller amount  so it does not take up an entire semi circle */
-          legend: {
-            display: false
-          },
-          tooltip: {
-            enabled: false
-          },
-          cutoutPercentage: 50,
-          tooltips: false,
-        }
-      }, );
-    </script>
-    <script>
-      var ctx2 = document.getElementById("canvas4");
-      var dashboardChart2 = new Chart(ctx2, {
-        type: 'doughnut',
-        data: {
-          datasets: [{
-            label: '# of Votes',
-            data: [14],
-            backgroundColor: [
-              'rgb(255, 0, 0)',
-              'white'
-            ],
-            borderWidth: 0
-          }]
-
-        },
-        options: {
-          rotation: 86 * Math.PI,
-          /** This is where you need to work out where 89% is */
-          circumference: 57.2 * Math.PI,
-          /** put in a much smaller amount  so it does not take up an entire semi circle */
-          legend: {
-            display: false
-          },
-          tooltip: {
-            enabled: false
-          },
-          cutoutPercentage: 50,
-          tooltips: false,
-        }
-      }, );
-    </script>
-    </script>
-    <script>
-      const labels4 = [
-        '08/04',
-        '09/04',
-        '10/04',
-        '11/04',
-        '12/04',
-        '13/04',
-      ];
-
-      const data4 = {
-        labels: labels4,
-        datasets: [{
-          label: 'Temperatura Minima',
-          backgroundColor: 'rgba(0,174,255,1)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: [3, 4, 2, 10, 1, 6, 20],
-        }]
-      };
-
-      const config4 = {
-        type: 'bar',
-        data: data4,
-        options: {}
-      };
-    </script>
-    
     <script src="../js/script.js"></script>

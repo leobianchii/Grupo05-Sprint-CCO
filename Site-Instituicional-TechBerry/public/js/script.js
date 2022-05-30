@@ -2,6 +2,8 @@ let proximaAtualizacao;
 
 window.onload = obterDadosGrafico(1);
 
+window.onload = atualizarTemperatura(1);
+
 function obterDadosGrafico(idAquario) {
 
     if (proximaAtualizacao != undefined) {
@@ -108,8 +110,6 @@ function plotarGrafico(resposta, idAquario) {
             }
         }
     });
-
-    setTimeout(() => atualizarGrafico(idAquario, dados), 2000);
 }
 
 
@@ -173,6 +173,73 @@ function plotarGrafico2(resposta, idAquario) {
 
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
+function atualizarTemperatura(idAquario){
+
+    fetch(`/medidas/tempo-real/${idAquario}`,{
+        cache: 'no-store'
+    }).then(
+        function (response) {
+            if (response.ok) {
+                response.json().then(function(novaResposta){
+
+                    var temp = novaResposta[novaResposta.length - 1].temperatura
+
+                    span_temperatura_1.innerHTML = `${temp}`;
+
+                    if ((temp >= 23 && temp < 27) || (temp <= 16 && temp > 13)) {
+                        span_temperatura_1.style.color = '#FF7F00';
+                        img_temp.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+                    }else if(temp >= 27 || temp <= 13){
+                        span_temperatura_1.style.color = 'red';
+                        img_temp.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+                    }else{
+                        span_temperatura_1.style.color = '#ff7070';
+                        img_temp.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                    }
+                })
+
+                setTimeout(() => atualizarTemperatura(idAquario), 2000);
+            }
+        }
+    ).catch(function (error){
+        console.log("Erro ao atualizar o gráfico");
+    });
+}
+
+function atualizarGrafico2(idAquario, dados) {
+
+    fetch(`/medidas/tempo-real/${idAquario}`, {
+            cache: 'no-store'
+        }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico: ${dados}`);
+
+                    // tirando e colocando valores no gráfico
+                    dados.labels.shift(); // apagar o primeiro
+                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+                    dados.datasets[0].data.shift(); // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+
+                    window.grafico_linha.update();
+
+                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
 function atualizarGrafico(idAquario, dados) {
 
     fetch(`/medidas/tempo-dia/${idAquario}`, {
@@ -208,38 +275,4 @@ function atualizarGrafico(idAquario, dados) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
 
-}
-
-function atualizarGrafico2(idAquario, dados) {
-
-    fetch(`/medidas/tempo-real/${idAquario}`, {
-            cache: 'no-store'
-        }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
-
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
-
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                    dados.datasets[0].data.shift(); // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                    window.grafico_linha.update();
-
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idAquario, dados), 2000);
-            }
-        })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
 }

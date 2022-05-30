@@ -59,8 +59,6 @@
           <input type="text" class="cadastroInput" id="numero_input">
           <span class="empresaInput">UF</span>
           <input type="text" class="cadastroInput" id="uf_input">
-          <span class="telefone">Telefone</span>
-          <input type="text" class="cadastroInput" id="telefone_input">
         </div> 
         <button id="botaoCadastro" class="botaoCadastro" onclick="location.href='principal.html'">Voltar</button>
         <button id="botaoCadastro1" class="botaoCadastro1" onclick="aheadCadastro()">Continuar</button>
@@ -142,7 +140,6 @@
       var cepVar = cep_input.value
       var numeroVar = numero_input.value
       var ufVar = uf_input.value
-      var telefoneVar = telefone_input.value
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
 
@@ -164,8 +161,7 @@
               logradouroServer: logradouroVar,
               cepServer: cepVar,
               numeroServer: numeroVar,
-              ufServer: ufVar,
-              telefoneServer: telefoneVar
+              ufServer: ufVar
           })
       }).then(function (resposta) {
 

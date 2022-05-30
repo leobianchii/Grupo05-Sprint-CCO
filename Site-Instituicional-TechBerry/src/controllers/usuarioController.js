@@ -72,7 +72,6 @@ function cadastrar(req, res) {
     var cep = req.body.cepServer;
     var numero = req.body.numeroServer;
     var uf = req.body.ufServer;
-    var telefone = req.body.telefoneServer;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -95,15 +94,22 @@ function cadastrar(req, res) {
         res.status(400).send("Seu numero está undefined!!")
     } else if (uf == undefined) {
         res.status(400).send("Seu UF está undefined!!")
-    } else if (telefone == undefined) {
-        res.status(400).send("Seu telefone está undefined!!")
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, cnpj, empresa, bairro, logradouro, cep, numero, uf, telefone)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
+        usuarioModel.cadastrar(nome, email, senha, cnpj, empresa, uf).then(
+                function () {
+                    usuarioModel.ultimoId().then(
+                        function(resultado){
+                            res.json(resultado);
+                            var id = resultado[0].idCliente;
+                            usuarioModel.cadastrarFazenda(bairro, logradouro, cep, numero, uf, id).then(
+                                function(resultado){
+                                    res.json(resultado);
+                                }
+                            )
+                        }
+                    )
                 }
             ).catch(
                 function (erro) {

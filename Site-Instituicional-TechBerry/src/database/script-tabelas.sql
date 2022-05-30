@@ -3,120 +3,109 @@
 -- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
 
 /* para workbench - local - desenvolvimento */
-create database TechBerry;
-use TechBerry;
+CREATE DATABASE TechBerry;
+USE TechBerry;
 
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE cliente (
+	idCliente INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
 	empresa VARCHAR(50),
-	bairro VARCHAR(50),
-	logradouro VARCHAR(50),
-	cep char(8),
-	numero VARCHAR(5),
-	uf char(2),
-	telefone char(11)
+    cnpj CHAR(14),
+    uf CHAR(2)
 );
 
-create table telefone(
-	idTelefone int primary key,
-    numero CHAR(11),
-    fkCliente int,
-    foreign key (fkCliente) references Cliente(idCliente)
+INSERT INTO cliente
+	VALUES(NULL, 'Pedro', 'pedro.varela@sptech.school', 'pedro1234', 'Techberry', '67177207000107', 'SP')
+    ,(NULL, 'Vitoria', 'vick@gmail.com', 'vick1234', 'Greentech', '40453217000171', 'RJ');
+
+CREATE TABLE Usuario(
+	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR (45),
+    email VARCHAR(45),
+    senha VARCHAR(20),
+    fkCliente INT,
+    FOREIGN KEY (fkCliente) REFERENCES Cliente(idCliente)
 );
 
-create table Usuario(
-	idUsuario int primary key,
-    nome varchar (45),
-    email varchar(45),
-    senha varchar(20),
-    cnpj char(14),
-    empresa varchar(45),
-    fkCliente int,
-    foreign key (fkCliente) references Cliente(idCliente)
-);
+INSERT INTO Usuario
+	VALUES(NULL, 'Funcionario 1', 'funcionario@gmail.com', 'func1234', 1)
+    ,(NULL, 'Funcionario 2', 'funcionario2@gmail.com', 'func1234', 2)
+    ,(NULL, 'Funcionario 3', 'funcionario3@gmail.com', 'func1234', 1);
 
-create table Endereco(
-	idEndereco int primary key,
-    bairro varchar(45),
-    logradouro varchar(45),
-    cep char(8),
-    numero char(5),
+CREATE TABLE Fazenda(
+	idFazenda INT PRIMARY KEY AUTO_INCREMENT,
+    bairro VARCHAR(45),
+    logradouro VARCHAR(45),
+    cep CHAR(8),
+    numero CHAR(5),
     UF CHAR(2),
-    fkClienteEndereco int,
-    foreign key (fkClienteEndereco) references Cliente(idCliente)
+    fkClienteFazenda INT,
+    FOREIGN KEY (fkClienteFazenda) REFERENCES Cliente(idCliente)
 );
 
-create table Fazenda(
-	idFazenda int primary key,
-    bairro varchar(45),
-    logradouro varchar(45),
-    cep char(8),
-    numero char(5),
-    UF CHAR(2),
-    fkClienteFazenda int,
-    foreign key (fkClienteFazenda) references Cliente(idCliente)
+INSERT INTO Fazenda
+	VALUES(NULL, 'Vila Nova Teresa', 'Rua Frei Jorge Cotrim', '03823050', '616', 'SP', 1)
+    ,(NULL, 'Aliança', 'Rua Galo da Serra', '06236740', '183', 'SP', 2);
+
+CREATE TABLE Estufa(
+	idEstufa INT PRIMARY KEY AUTO_INCREMENT,
+    descEstufa VARCHAR(45),
+    fkFazenda INT,
+    FOREIGN KEY (fkFazenda) REFERENCES Fazenda(idFazenda)
 );
 
-create table Estufa(
-	idEstufa int primary key,
-    descEstufa varchar(45),
-    tamanhoEstufa char(5),
-    fkFazenda int,
-    foreign key (fkFazenda) references Fazenda(idFazenda)
-);
 
-create table Sensor(
-	idSensor int primary key,
-    descSensor varchar(45),
-    porta int,
-    tipoSensor varchar(20),
-    fkEstufa int,
-    foreign key (fkEstufa) references Estufa(idEstufa)
-);
+INSERT INTO Estufa
+	VALUES(NULL, 'Estufa 1', 1)
+    ,(NULL, 'Estufa 2', 1)
+    ,(NULL, 'Estufa 1', 2);
 
-create table Historico(
-	idHistorico int primary key,
-    descHistorico varchar(45),
-    temperaturaLida char(5),
-    umidadeLida char(5),
+CREATE TABLE Historico(
+	idHistorico INT PRIMARY KEY AUTO_INCREMENT,
+    descHistorico VARCHAR(45),
+    temperaturaLida DECIMAL(5,2),
+    umidadeLida DECIMAL(5,2),
     momento DATETIME,
-    fkSensor int,
-    foreign key (fkSensor) references Sensor(idSensor)
+    fkEstufa INT,
+    FOREIGN KEY (fkEstufa) REFERENCES Estufa(idEstufa)
+);
+    
+SELECT COUNT(temperaturaLida) FROM Historico
+	INNER JOIN Estufa ON Historico.fkEstufa = Estufa.idEstufa
+    INNER JOIN MorangoEstufa ON Estufa.idEstufa = MorangoEstufa.fkEstufa
+    INNER JOIN Morango ON MorangoEstufa.fkMorango = Morango.idMorango
+    WHERE (temperaturaLida > temperaturaMax OR temperaturaLida < temperaturaMin)
+    AND Historico.fkEstufa = 1;
+        
+CREATE TABLE Morango(
+	idMorango INT PRIMARY KEY AUTO_INCREMENT,
+    tipoMorango VARCHAR(45),
+    valor DECIMAL(5,2),
+    temperaturaMax DECIMAL(5,2),
+    temperaturaMin DECIMAL(5,2),
+    umidadeMax DECIMAL(5,2),
+    umidadeMin DECIMAL(5,2)
 );
 
-create table Morango(
-	idMorango int primary key,
-    tipoMorango varchar(45),
-    temperaturaIdeal char(5),
-    umidadeIdeal char(5),
-    Valor decimal(5,2),
-    temperaturaMax char(5),
-    temperaturaMin char(5),
-    umidadeMax char(5),
-    umidadeMin char (5)
+INSERT INTO Morango
+	VALUES(NULL, 'Morango Silvestre', 3.00, '23', '16', '75', '55')
+    ,(NULL, 'Morango Ucraniano', 3.00, '30', '10', '75', '55');
+
+CREATE TABLE MorangoEstufa(
+	fkMorango INT,
+    FOREIGN KEY (fkMorango) REFERENCES Morango(idMorango),
+    fkEstufa INT,
+    FOREIGN KEY (fkEstufa) REFERENCES Estufa(idEstufa),
+    PRIMARY KEY(fkMorango, fkEstufa)
 );
 
-create table MorandoEstufa(
-	fkMorango int,
-    foreign key (fkMorango) references Morango(idMorango),
-    fkEstufa int,
-    foreign key (fkEstufa) references Estufa(idEstufa)
-);
-
-create table Alerta(
-	idAlerta int primary key,
-    dataHora datetime,
-    fkHistorico int,
-    foreign key (fkHistorico) references Historico(idHistorico),
-    fkMorango int,
-    foreign key (fkMorango) references Morango(idMorango)
-);
-
-select * from usuario;
+INSERT INTO MorangoEstufa
+	VALUES(1, 1)
+    ,(1, 2)
+    ,(2, 1);
 
 
 /* para sql server - remoto - produção */
