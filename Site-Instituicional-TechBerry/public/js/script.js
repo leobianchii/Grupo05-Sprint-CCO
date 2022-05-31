@@ -1,8 +1,32 @@
 let proximaAtualizacao;
 
-window.onload = obterDadosGrafico(1);
+// window.onload = obterDadosGrafico(1);
 
-window.onload = atualizarTemperatura(1);
+// window.onload = atualizarTemperatura(1);
+
+window.onload = obterEstufa();
+
+function obterEstufa(){
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    console.log(idUsuario);
+
+    fetch(`/estufa/estufas/${idUsuario}`, {
+        cache: 'no-store'
+    }).then(function(response){
+        if (response.ok) {
+            response.json().then(function(resposta){
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+            })
+        }else{
+            console.error('Nenhuma quantidade de estufa encontrada');
+        }
+    }).catch(function(error){
+        console.error(`Erro na obtenção das qtd de estufas: ${error.message}`);
+    });
+}
 
 function obterDadosGrafico(idAquario) {
 

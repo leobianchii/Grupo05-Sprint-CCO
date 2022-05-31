@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TechBerry</title>
 
+
+  <script src="../js/funcoes.js"></script>
   <!-- Link do css, font-family e dos graficos em chart-js -->
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/styleMin3.css">
@@ -40,25 +42,25 @@
     <div class="canvasA">
       <div onclick="hide1()" class="sensorContainer1">
         <span style="position: fixed; color: rgb(255, 112, 112);">1°</span>
-        <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_1">26</span>°C <img id="img_temp"
+        <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_1">0</span>°C <img id="img_temp"
         src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg"
         alt="" style="width: 35px; height: 35px;  margin: 0px -5px -10px;"></span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">26%</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">0%</span>
       </div>
       <div onclick="hide2()" class="sensorContainer2">
         <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
-        <span class="graus" id="span_temperatura" style="font-weight: 600;">17°C</span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">17%</span>
+        <span class="graus" id="span_temperatura" style="font-weight: 600;">0°C</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">0%</span>
       </div>
       <div onclick="hide3()" class="sensorContainer3">
         <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
-        <span class="graus" id="span_temperatura" style="font-weight: 600;">18°C</span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">18%</span>
+        <span class="graus" id="span_temperatura" style="font-weight: 600;">0°C</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">0%</span>
       </div>
       <div onclick="hide4()" class="sensorContainer4">
         <span style="position: fixed; color: rgb(255, 112, 112);">4°</span>
-        <span class="graus" id="span_temperatura" style="font-weight: 600;">30°C</span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">30°C</span>
+        <span class="graus" id="span_temperatura" style="font-weight: 600;">0°C</span>
+        <span class="graus2" id="span_umidade" style="font-weight: 600;">0°C</span>
       </div>
     </div>
   </div>
@@ -93,5 +95,12 @@
       </ul>
       © 2022–2022 TechBerry.®, Inc. Todos os direitos reservados.
     </div>
-    <script src="../javascript/mouseOver.js"></script> <!-- verificação do footer -->
-    <script src="../js/script.js"></script>
+  </div>
+</body>
+</html>
+<script src="../javascript/mouseOver.js"></script> <!-- verificação do footer -->
+<script src="../js/script.js"></script>
+<script>
+  window.onload = validarSessao();
+</script>
+    
