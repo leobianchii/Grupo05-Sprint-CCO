@@ -42,6 +42,22 @@ function buscarUltimasMedidasHora(req, res) {
     });
 }
 
+function buscarAlertas(req, res) {
+    var idAquario = req.params.idAquario;
+
+    medidaModel.buscarAlertas(idAquario).then(
+        function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            }else{
+                res.status.send("Nenhum resultado encontrado!");
+            }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os alertas", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage)
+    });
+}
 
 function buscarMedidasEmTempoReal(req, res) {
 
@@ -85,5 +101,6 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarUltimasMedidasHora,
-    buscarMedidasEmTempoDia
+    buscarMedidasEmTempoDia,
+    buscarAlertas
 }

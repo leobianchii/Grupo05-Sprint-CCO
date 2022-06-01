@@ -11,6 +11,9 @@ router.get("/ultimas-hora/:idAquario", function (req, res) {
     medidaController.buscarUltimasMedidasHora(req, res);
 });
 
+router.get("/alerta/:idAquario", function (req, res){
+    medidaController.buscarAlertas(req, res);
+});
 
 router.get("/tempo-real/:idAquario", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);

@@ -36,8 +36,9 @@ function renderizarEstufas(estufas){
         div_estufas.innerHTML += `
         <div onclick="obterDadosGrafico(${i})" class="sensorContainer${i}">
             <span style="position: fixed; color: rgb(255, 112, 112);">${i}°</span>
-            <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_${i}">0</span>°C <img id="img_temp1" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px 10px -10px;"></span>
-            <span class="graus2" id="span_umidade" style="font-weight: 600;">0%<img id="img_temp" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px 10px -8px;"></span>
+            <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_${i}">0</span>°C <img id="img_temp${i}" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px 10px -10px;"></span>
+            <span class="graus2" id="span_umidade" style="font-weight: 600;">0%<img id="img_umi${i}" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px 10px -8px;"></span>
+            <span style="position: fixed; color: rgb(255, 112, 112);margin-top: 10%; margin-left: 4%;">Qtd de alertas: <span id="qtd_alerta_${i}">0</span></span>
         </div>`;
     }
 }
@@ -211,6 +212,9 @@ function plotarGrafico2(resposta, idAquario) {
 
 //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
 //     Para ajustar o "select", ajuste o comando sql em src/models
+var alerta_span1 = [];
+var alerta_span2 = [];
+var alerta_span3 = [];
 function atualizarTemperatura(idAquario){
 
     fetch(`/medidas/tempo-real/${idAquario}`,{
@@ -219,20 +223,94 @@ function atualizarTemperatura(idAquario){
         function (response) {
             if (response.ok) {
                 response.json().then(function(novaResposta){
+                    var span1 = document.getElementById("span_temperatura_1");
+                    var span2 = document.getElementById("span_temperatura_2");
+                    var span3 = document.getElementById("span_temperatura_3");
+                    var span4 = document.getElementById("span_temperatura_4");
+                    var temp = Number(novaResposta[novaResposta.length - 1].temperatura);
 
-                    var temp = novaResposta[novaResposta.length - 1].temperatura
+                    if (span1 != null) {
+                        if (temp >= 27 || temp <= 13) {
+                            span1.style.color = 'red';
+                            img_temp1.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+                        }else if(temp >= 23 || temp <= 16){
+                            span1.style.color = '#FF7F00';
+                            img_temp1.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+                        }else{
+                            span1.style.color = '#ff7070';
+                            img_temp1.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                        }
 
-                    span_temperatura_1.innerHTML = `${temp}`;
+                        span1.innerHTML = `${Math.trunc(temp)}`;    
+                    }
+                    
+                    if (span2 != null) {
+                        let cal = Math.floor(Math.random() * 7);
+                        temp2 = temp - cal;
 
-                    if ((temp >= 23 && temp < 27) || (temp <= 16 && temp > 13)) {
-                        span_temperatura_1.style.color = '#FF7F00';
-                        img_temp1.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
-                    }else if(temp >= 27 || temp <= 13){
-                        span_temperatura_1.style.color = 'red';
-                        img_temp1.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
-                    }else{
-                        span_temperatura_1.style.color = '#ff7070';
-                        img_temp1.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                        if (temp2 >= 27 || temp2 <= 13) {
+                            span2.style.color = 'red';
+                            img_temp2.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+
+                            alerta_span1.push(1);
+                        }else if(temp2 >= 23 || temp2 <= 16){
+                            span2.style.color = '#FF7F00';
+                            img_temp2.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+
+                            alerta_span1.push(1);
+                        }else{
+                            span2.style.color = '#ff7070';
+                            img_temp2.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                        }
+
+                        span2.innerHTML = `${Math.trunc(temp2)}`;  
+                        qtd_alerta_2.innerHTML = `${alerta_span1.length}`; 
+                    }
+                    
+                    if (span3 != null) {
+                        let cal =  Math.floor(Math.random() * 4);
+                        temp3 = temp + cal;
+
+                        if (temp3 >= 27 || temp3 <= 13) {
+                            span3.style.color = 'red';
+                            img_temp3.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+
+                            alerta_span2.push(1);
+                        }else if(temp3 >= 23 || temp3 <= 16){
+                            span3.style.color = '#FF7F00';
+                            img_temp3.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+
+                            alerta_span2.push(1);
+                        }else{
+                            span3.style.color = '#ff7070';
+                            img_temp3.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                        }
+
+                        span3.innerHTML = `${Math.trunc(temp3)}`;
+                        qtd_alerta_3.innerHTML = `${alerta_span2.length}`;
+                    }
+
+                    if (span4 != null) {
+                        let cal = Math.floor(Math.random() * 6);
+                        temp4 = temp + cal;
+
+                        if (temp4 >= 27 || temp4 <= 13) {
+                            span4.style.color = 'red';
+                            img_temp4.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+
+                            alerta_span3.push(1);
+                        }else if(temp4 >= 23 || temp4 <= 16){
+                            span4.style.color = '#FF7F00';
+                            img_temp4.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+
+                            alerta_span3.push(1);
+                        }else{
+                            span4.style.color = '#ff7070';
+                            img_temp4.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                        }
+
+                        span4.innerHTML = `${Math.trunc(temp4)}`;
+                        qtd_alerta_4.innerHTML = `${alerta_span3.length}`;   
                     }
                 })
 

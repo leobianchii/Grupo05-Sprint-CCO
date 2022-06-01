@@ -40,9 +40,20 @@ function buscarMedidasEmTempoDia(idAquario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarAlertas(idAquario){
+    instrucao = `SELECT COUNT(DISTINCT hour(momento)) AS alerta FROM Historico
+	WHERE (temperaturaLida >= (SELECT temperaturaMax FROM Morango WHERE idMorango = 1)
+    OR temperaturaLida <= (SELECT temperaturaMin FROM Morango WHERE idMorango = 1))
+    AND day(momento) = day(now())
+    AND fkEstufa = ${idAquario};`;
+
+    return database.executar(instrucao);
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarUltimasMedidasHora,
-    buscarMedidasEmTempoDia
+    buscarMedidasEmTempoDia,
+    buscarAlertas
 }
