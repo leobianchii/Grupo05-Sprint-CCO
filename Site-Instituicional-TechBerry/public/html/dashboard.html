@@ -33,35 +33,14 @@
   <img src="../imagens/info (1).png" onclick="mostrarMetricas()"
     style="height: 30px; position: fixed; margin-left: 50px; cursor: pointer;">
   <img id="tempMetrica" src="../imagens/temp.png" alt=""
-    style="margin-left: 35%; display: none; position: fixed; z-index: 1;">
+    style="margin-left: 35vw; display: none; position: fixed; z-index: 1;">
   <img id="umiMetrica" src="../imagens/umidade.png" alt=""
-    style="margin-left: 6%;display: none; position: fixed; z-index: 1;">
+    style="margin-left: 6vw;display: none; position: fixed; z-index: 1;">
 
   <!-- Aqui está a div para a renderização dos gráficos da estufa -->
   <div class="sensorContainers">
-    <div class="canvasA">
-      <div onclick="hide1()" class="sensorContainer1">
-        <span style="position: fixed; color: rgb(255, 112, 112);">1°</span>
-        <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_1">0</span>°C <img id="img_temp"
-        src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg"
-        alt="" style="width: 35px; height: 35px;  margin: 0px -5px -10px;"></span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">0%</span>
-      </div>
-      <div onclick="hide2()" class="sensorContainer2">
-        <span style="position: fixed; color: rgb(255, 112, 112);">2°</span>
-        <span class="graus" id="span_temperatura" style="font-weight: 600;">0°C</span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">0%</span>
-      </div>
-      <div onclick="hide3()" class="sensorContainer3">
-        <span style="position: fixed; color: rgb(255, 112, 112);">3°</span>
-        <span class="graus" id="span_temperatura" style="font-weight: 600;">0°C</span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">0%</span>
-      </div>
-      <div onclick="hide4()" class="sensorContainer4">
-        <span style="position: fixed; color: rgb(255, 112, 112);">4°</span>
-        <span class="graus" id="span_temperatura" style="font-weight: 600;">0°C</span>
-        <span class="graus2" id="span_umidade" style="font-weight: 600;">0°C</span>
-      </div>
+    <div id="div_estufas" class="canvasA">
+      
     </div>
   </div>
 

@@ -1,8 +1,8 @@
 let proximaAtualizacao;
 
-// window.onload = obterDadosGrafico(1);
+window.onload = obterDadosGrafico(1);
 
-// window.onload = atualizarTemperatura(1);
+window.onload = atualizarTemperatura(1);
 
 window.onload = obterEstufa();
 
@@ -11,14 +11,15 @@ function obterEstufa(){
 
     console.log(idUsuario);
 
-    fetch(`/estufa/estufas/${idUsuario}`, {
+    fetch(`/estufas/estufa/${idUsuario}`, {
         cache: 'no-store'
     }).then(function(response){
         if (response.ok) {
             response.json().then(function(resposta){
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
+                //console.log(`Dados recebidos da estufa: ${JSON.stringify(resposta)}`);
+                //console.log(`Qtd de dados recebido: ${resposta.length}`);
+               
+                renderizarEstufas(resposta);
             })
         }else{
             console.error('Nenhuma quantidade de estufa encontrada');
@@ -26,6 +27,19 @@ function obterEstufa(){
     }).catch(function(error){
         console.error(`Erro na obtenção das qtd de estufas: ${error.message}`);
     });
+}
+
+function renderizarEstufas(estufas){
+    console.log(`entrei: ${estufas[0].qtd_estufas}`);
+
+    for(i=1; i<=estufas[0].qtd_estufas; i++){
+        div_estufas.innerHTML += `
+        <div onclick="obterDadosGrafico(${i})" class="sensorContainer${i}">
+            <span style="position: fixed; color: rgb(255, 112, 112);">${i}°</span>
+            <span class="graus" style="font-weight: 600;"> <span id="span_temperatura_${i}">0</span>°C <img id="img_temp1" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px 10px -10px;"></span>
+            <span class="graus2" id="span_umidade" style="font-weight: 600;">0%<img id="img_temp" src="https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg" alt="" style="width: 35px; height: 35px;  margin: 0px 10px -8px;"></span>
+        </div>`;
+    }
 }
 
 function obterDadosGrafico(idAquario) {
@@ -212,13 +226,13 @@ function atualizarTemperatura(idAquario){
 
                     if ((temp >= 23 && temp < 27) || (temp <= 16 && temp > 13)) {
                         span_temperatura_1.style.color = '#FF7F00';
-                        img_temp.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+                        img_temp1.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
                     }else if(temp >= 27 || temp <= 13){
                         span_temperatura_1.style.color = 'red';
-                        img_temp.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
+                        img_temp1.src = 'https://cdn.dribbble.com/users/251873/screenshots/9288094/13539-sign-for-error-or-explanation-alert.gif';
                     }else{
                         span_temperatura_1.style.color = '#ff7070';
-                        img_temp.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
+                        img_temp1.src = 'https://png.pngtree.com/png-vector/20190228/ourmid/pngtree-check-mark-icon-design-template-vector-isolated-png-image_711429.jpg';
                     }
                 })
 

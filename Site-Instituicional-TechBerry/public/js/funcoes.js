@@ -51,3 +51,13 @@ function fecharModal() {
     divModal.style.display = "none";
 }
 
+function mostrarMetricas(){
+    if (tempMetrica.style.display == 'none') {
+        tempMetrica.style.display = "block";
+        umiMetrica.style.display = "block";
+    } else {
+        tempMetrica.style.display = "none";
+        umiMetrica.style.display = "none";
+    }
+}
+
