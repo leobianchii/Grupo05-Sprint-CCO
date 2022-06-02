@@ -81,5 +81,21 @@
 <script src="../js/script.js"></script>
 <script>
   window.onload = validarSessao();
+
+  document.getElementById("botao1").addEventListener('click', function(){
+    botao1.style.backgroundColor = `#ff5050`;
+    botao2.style.backgroundColor = `#ff7070`;
+
+    div_temp.style.display = 'block';
+    div_umida.style.display = 'none';
+  });
+
+  document.getElementById("botao2").addEventListener('click', function(){
+    botao2.style.backgroundColor = `#ff5050`;
+    botao1.style.backgroundColor = `#ff7070`;
+
+    div_temp.style.display = 'none';
+    div_umida.style.display = 'block';
+  });
 </script>
     

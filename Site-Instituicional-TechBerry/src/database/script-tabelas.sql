@@ -72,6 +72,21 @@ CREATE TABLE Historico(
     fkEstufa INT,
     FOREIGN KEY (fkEstufa) REFERENCES Estufa(idEstufa)
 );
+
+INSERT INTO Historico
+	VALUES(null, 'Temperaturas lidas', 28, 75, now(), 1)
+    ,(null, 'Temperaturas lidas', 32, 60, now(), 1)
+    ,(null, 'Temperaturas lidas', 24, 80, now(), 1)
+    ,(null, 'Temperaturas lidas', 23, 85, now(), 1)
+    ,(null, 'Temperaturas lidas', 21, 82, now(), 1)
+    ,(null, 'Temperaturas lidas', 19, 83, now(), 1)
+    ,(null, 'Temperaturas lidas', 18, 90, now(), 1)
+    ,(null, 'Temperaturas lidas', 13, 85, '2022-06-01 12:00:00', 1)
+    ,(null, 'Temperaturas lidas', 25, 70, '2022-06-01 11:00:00', 1)
+    ,(null, 'Temperaturas lidas', 32, 55, '2022-06-01 10:00:00', 1)
+    ,(null, 'Temperaturas lidas', 30, 75, '2022-05-31 12:00:00', 1)
+    ,(null, 'Temperaturas lidas', 22, 75, '2022-05-31 11:00:00', 1)
+    ,(null, 'Temperaturas lidas', 12, 75, '2022-05-31 10:00:00', 1);
     
 SELECT COUNT(temperaturaLida) FROM Historico
 	INNER JOIN Estufa ON Historico.fkEstufa = Estufa.idEstufa
