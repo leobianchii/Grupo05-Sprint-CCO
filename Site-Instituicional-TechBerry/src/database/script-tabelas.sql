@@ -125,26 +125,65 @@ INSERT INTO MorangoEstufa
 
 /* para sql server - remoto - produção */
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY IDENTITY(1,1),
+CREATE TABLE cliente (
+	idCliente INT PRIMARY KEY IDENTITY(1,1),
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
+	empresa VARCHAR(50),
+    cnpj CHAR(14),
+    uf CHAR(2)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
 
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
+CREATE TABLE Usuario(
+	idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    nome VARCHAR (45),
+    email VARCHAR(45),
+    senha VARCHAR(20),
+    fkCliente INT FOREIGN KEY REFERENCES Cliente(idCliente)
+);
+
+
+CREATE TABLE Fazenda(
+	idFazenda INT PRIMARY KEY IDENTITY(1,1),
+    bairro VARCHAR(45),
+    logradouro VARCHAR(45),
+    cep CHAR(8),
+    numero CHAR(5),
+    UF CHAR(2),
+    fkClienteFazenda INT FOREIGN KEY REFERENCES Cliente(idCliente)
+);
+
+CREATE TABLE Estufa(
+	idEstufa INT PRIMARY KEY IDENTITY(1,1),
+    descEstufa VARCHAR(45),
+    fkFazenda INT FOREIGN KEY REFERENCES Fazenda(idFazenda)
+);
+
+CREATE TABLE Historico(
+	idHistorico INT PRIMARY KEY IDENTITY(1,1),
+    descHistorico VARCHAR(45),
+    temperaturaLida DECIMAL(5,2),
+    umidadeLida DECIMAL(5,2),
+    momento DATETIME,
+    fkEstufa INT FOREIGN KEY REFERENCES Estufa(idEstufa)
+);
+
+CREATE TABLE Morango(
+	idMorango INT PRIMARY KEY IDENTITY(1,1),
+    tipoMorango VARCHAR(45),
+    valor DECIMAL(5,2),
+    temperaturaMax DECIMAL(5,2),
+    temperaturaMin DECIMAL(5,2),
+    umidadeMax DECIMAL(5,2),
+    umidadeMin DECIMAL(5,2)
+);
+
+CREATE TABLE MorangoEstufa(
+	fkMorango INT FOREIGN KEY REFERENCES Morango(idMorango),
+    fkEstufa INT FOREIGN KEY REFERENCES Estufa(idEstufa),
+    PRIMARY KEY(fkMorango, fkEstufa)
 );
 
 
