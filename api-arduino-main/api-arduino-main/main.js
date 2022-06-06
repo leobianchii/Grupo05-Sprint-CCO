@@ -8,10 +8,10 @@ const SERVIDOR_PORTA = 3300;
 const HABILITAR_OPERACAO_INSERIR = true;
 
 // escolha deixar a linha 'desenvolvimento' descomentada se quiser conectar seu arduino ao banco de dados local, MySQL Workbench
-const AMBIENTE = 'desenvolvimento';
+// const AMBIENTE = 'desenvolvimento';
 
 // escolha deixar a linha 'producao' descomentada se quiser conectar seu arduino ao banco de dados remoto, SQL Server
-//const AMBIENTE = 'producao';
+const AMBIENTE = 'producao';
 
 const serial = async (
     valoresDht11Umidade,
@@ -75,10 +75,11 @@ const serial = async (
 
                 // Este insert irá inserir os dados na tabela "medida" -> altere se necessário
                 // Este insert irá inserir dados de fk_aquario id=1 >> você deve ter o aquario de id 1 cadastrado.
-                sqlquery = `INSERT INTO medida (dht11_umidade, dht11_temperatura, luminosidade, lm35_temperatura, chave, momento, fk_aquario) VALUES (${dht11Umidade}, ${dht11Temperatura}, ${luminosidade}, ${lm35Temperatura}, ${chave}, CURRENT_TIMESTAMP, 1)`;
+                sqlquery = `INSERT INTO Historico(descHistorico, temperaturaLida, umidadeLida, momento, fkEstufa)
+                VALUES('Temperatura lida', ${dht11Temperatura}, ${dht11Umidade}, DATEADD(HOUR, -3, GETDATE()), 1);`;
 
                 // CREDENCIAIS DO BANCO REMOTO - SQL SERVER
-                const connStr = "Server=servidor-acquatec.database.windows.net;Database=bd-acquatec;User Id=usuarioParaAPIArduino_datawriter;Password=#Gf_senhaParaAPI;";
+                const connStr = "Server=grupo5-1cco.database.windows.net;Database=Techberry-grupo5;User Id=grupo5-1cco;Password=Techberry123;";
 
                 function inserirComando(conn, sqlquery) {
                     conn.query(sqlquery);
